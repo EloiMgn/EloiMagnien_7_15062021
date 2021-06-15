@@ -1,0 +1,34 @@
+{
+  "name": "eloimagnien_7_15062021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./styles/SCSS/main.scss:./styles/CSS/style.css",
+    "prefix": "postcss ./styles/CSS/style.css --use autoprefixer -d ./styles/CSS/style.css"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "postcss": "^8.2.10",
+    "postcss-cli": "^8.3.1",
+    "prettier": "^2.3.1",
+    "sass": "^1.32.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eloidev/EloiMagnien_7_15062021.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eloidev/EloiMagnien_7_15062021/issues"
+  },
+  "homepage": "https://github.com/Eloidev/EloiMagnien_7_15062021#readme"
+}
