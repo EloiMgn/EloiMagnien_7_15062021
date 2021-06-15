@@ -1,0 +1,31 @@
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.main__logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 40px auto;
+
+    &__img {
+        width: 50px;
+        height: 47px;
+    }
+
+    &__text {
+        font-family: DM Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 47px;
+        text-align: center;
+        color: #D04F4F;
+    }
+}
