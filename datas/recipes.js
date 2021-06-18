@@ -1,4 +1,4 @@
-const recipes = [
+export const recipes = [
   {
     id: 1,
     name: 'Limonade de Coco',
@@ -59,7 +59,7 @@ const recipes = [
         quantity: 5
       },
       {
-        ingredient: 'Lait de Coco',
+        ingredient: 'Lait de coco',
         quantity: 100,
         unit: 'ml'
       }
@@ -160,7 +160,7 @@ const recipes = [
         quantity: 2
       },
       {
-        ingredient: 'Crème fraiche',
+        ingredient: 'Crème Fraîche',
         quantity: 2,
         unit: 'cuillères à soupe'
       },
@@ -198,7 +198,7 @@ const recipes = [
         quantity: '2'
       },
       {
-        ingredient: 'Crème fraiche',
+        ingredient: 'Crème Fraîche',
         quantity: 25,
         unit: 'cl'
       },
@@ -215,7 +215,7 @@ const recipes = [
       }
     ],
     time: 50,
-    description: "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
+    description: "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crème fraîche. Laisser cuire au four pendant 30 minutes",
     appliance: 'Four',
     ustensils: ['moule à tarte', 'saladier', 'fourchette']
   }, {
@@ -320,7 +320,7 @@ const recipes = [
       }
     ],
     time: 15,
-    description: "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
+    description: "Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olive à votre gout.",
     appliance: 'Saladier',
     ustensils: ['cuillère en bois', 'couteau']
   },
@@ -330,7 +330,7 @@ const recipes = [
     servings: 4,
     ingredients: [
       {
-        ingredient: 'Roblochon',
+        ingredient: 'Reblochon',
         quantity: '1'
       },
       {
@@ -452,7 +452,7 @@ const recipes = [
         unit: 'cuillère à soupe'
       },
       {
-        ingredient: "huile d'olive",
+        ingredient: "Huile d'olive",
         quantity: 2,
         unit: 'cuillère à soupe'
       }
@@ -567,7 +567,7 @@ const recipes = [
         unit: 'tiges'
       },
       {
-        ingredient: "huile d'olives",
+        ingredient: "Huile d'olive",
         quantity: 2,
         unit: 'cuillère à soupe'
       }
@@ -683,7 +683,7 @@ const recipes = [
         unit: 'grammes'
       },
       {
-        ingredient: 'Crème fraiche',
+        ingredient: 'Crème Fraîche',
         quantity: 200,
         unit: 'grammes'
       },
@@ -693,7 +693,7 @@ const recipes = [
         unit: 'grammes'
       },
       {
-        ingredient: "huile d'olive",
+        ingredient: "Huile d'olive",
         quantity: 1,
         unit: 'cuillères à soupe'
       }
@@ -733,7 +733,7 @@ const recipes = [
         unit: 'cl'
       },
       {
-        ingredient: 'Crème Fraiche',
+        ingredient: 'Crème Fraîche',
         quantity: 1,
         unit: 'cuillères à soupe'
       }
@@ -906,7 +906,7 @@ const recipes = [
         quantity: 1
       },
       {
-        ingredient: "Huile d'olives"
+        ingredient: "Huile d'olive"
       },
       {
         ingredient: 'Oignon',
@@ -937,7 +937,7 @@ const recipes = [
         quantity: 1
       },
       {
-        ingredient: 'Crème fraîche',
+        ingredient: 'Crème Fraîche',
         quantity: 4,
         unit: 'cuillère à soupe'
       },
@@ -953,7 +953,7 @@ const recipes = [
       }
     ],
     time: 15,
-    description: "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crême fraîche",
+    description: "Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crème fraîche",
     appliance: 'Casserolle',
     ustensils: ['couteau', 'cuillère en bois']
   },
@@ -982,7 +982,7 @@ const recipes = [
         unit: 'grammes'
       },
       {
-        ingredient: 'Crême fraîche',
+        ingredient: 'Crème Fraîche',
         quantity: 10,
         unit: 'cl'
       }
@@ -1169,7 +1169,7 @@ const recipes = [
         unit: 'grammes'
       },
       {
-        ingredient: 'Crème fraîche',
+        ingredient: 'Crème Fraîche',
         quantity: 20,
         unit: 'cl'
       },
@@ -1205,7 +1205,7 @@ const recipes = [
         unit: 'grammes'
       },
       {
-        ingredient: 'Crème fraîche',
+        ingredient: 'Crème Fraîche',
         quantity: 2,
         unit: 'cuillères à soupe'
       },
@@ -1279,7 +1279,7 @@ const recipes = [
         unit: 'grammes'
       },
       {
-        ingredient: "Huile d'olives",
+        ingredient: "Huile d'olive",
         quantity: 25,
         unit: 'cl'
       },
@@ -1659,7 +1659,7 @@ const recipes = [
     servings: 4,
     ingredients: [
       {
-        ingredient: 'Bananes',
+        ingredient: 'Banane',
         quantity: 2
       },
       {
@@ -1721,4 +1721,4 @@ const recipes = [
     appliance: 'Four',
     ustensils: ['rouleau à patisserie', 'fouet']
   }
-]
+];
