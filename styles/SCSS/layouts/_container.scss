@@ -11,6 +11,8 @@
         margin: 30px;
         &__img {
             width: 100%;
+            min-width: 100%;
+            min-height: 180px;
             height: 180px;
             border-top-left-radius: 5px; 
             border-top-right-radius: 5px; 
