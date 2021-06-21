@@ -41,7 +41,7 @@ export class recipesSelection {
       const recipeCardImg = document.createElement('img');
       recipeCardImg.classList.add('selection__card__img');
       recipeCardImg.setAttribute('alt', 'recipe image');
-      recipeCardImg.setAttribute('src', '../images/recettes/recette.jpg');
+      recipeCardImg.setAttribute('src', './images/recettes/recette.jpg');
       card.appendChild(recipeCardImg);
     });
   }
