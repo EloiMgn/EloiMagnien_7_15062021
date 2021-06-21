@@ -20,5 +20,13 @@ export class ustensilsSearch {
       newElement.textContent = element;
       ustensilsButton.appendChild(newElement);
     });
+
+    this.createSessionsStorage(filteredArray);
+  }
+
+  static createSessionsStorage (array) {
+    if (sessionStorage.getItem('ustensilsArray') == null) {
+      sessionStorage.setItem('ustensilsArray', JSON.stringify(array));
+    }
   }
 }

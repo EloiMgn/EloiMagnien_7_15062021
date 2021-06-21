@@ -1,7 +1,20 @@
 import { recipes } from '../datas/recipes.js';
 
 export class recipesSelection {
-  static createRecipesSelection () {
+  static createRecipesSelection (array) {
+    this.createSelectionContainer();
+    this.createSelectionCard();
+    this.createCardImg();
+    this.createCardDescriptionTop();
+    this.createCardDescriptionBottom();
+    this.createSessionStorage(array);
+  }
+
+  static createSessionStorage (array) {
+    console.log(array);
+    if (sessionStorage.getItem('recipes') == null) {
+      sessionStorage.setItem('recipes', JSON.stringify(array));
+    }
   }
 
   static createSelectionContainer () {

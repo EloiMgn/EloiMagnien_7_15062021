@@ -23,9 +23,13 @@ export class ingredientsSearch {
       newElement.textContent = element;
       ingredientsButton.appendChild(newElement);
     });
+    console.log(filteredArray);
+    this.createSessionsStorage(filteredArray);
   }
-  
-  static createSessionsStorage(array){
-    
+
+  static createSessionsStorage (array) {
+    if (sessionStorage.getItem('ingredientsArray') == null) {
+      sessionStorage.setItem('ingredientsArray', JSON.stringify(array));
+    }
   }
 }

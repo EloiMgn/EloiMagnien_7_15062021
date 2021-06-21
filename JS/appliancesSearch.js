@@ -21,5 +21,12 @@ export class appliancesSearch {
       newElement.textContent = element;
       appliancesButton.appendChild(newElement);
     });
+    this.createSessionsStorage(filteredArray);
+  }
+
+  static createSessionsStorage (array) {
+    if (sessionStorage.getItem('appliancesArray') == null) {
+      sessionStorage.setItem('appliancesArray', JSON.stringify(array));
+    }
   }
 }
