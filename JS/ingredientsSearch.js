@@ -24,4 +24,8 @@ export class ingredientsSearch {
       ingredientsButton.appendChild(newElement);
     });
   }
+  
+  static createSessionsStorage(array){
+    
+  }
 }

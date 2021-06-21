@@ -8,3 +8,6 @@ appliancesSearch.searchAppliance();
 ustensilsSearch.searchUstensil();
 recipesSelection.createSelectionContainer();
 recipesSelection.createSelectionCard();
+recipesSelection.createCardImg();
+recipesSelection.createCardDescriptionTop();
+recipesSelection.createCardDescriptionBottom();
