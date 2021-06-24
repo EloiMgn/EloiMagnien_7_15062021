@@ -1,20 +1,18 @@
 import { recipes } from '../datas/recipes.js';
 
-// export class ingredientsSearch {
-// }
+export const ingredientsArray = [];
 export class ingredientsSearch {
   static searchIngredient () {
     const ingredientsButton = document.getElementById('ingredients');
-    const elementsArray = [];
 
     for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
         const elements = recipes[i].ingredients[j].ingredient;
-        elementsArray.push(elements);
+        ingredientsArray.push(elements);
       }
     }
 
-    let filteredArray = elementsArray.filter((ele, pos) => elementsArray.indexOf(ele) === pos);
+    let filteredArray = ingredientsArray.filter((ele, pos) => ingredientsArray.indexOf(ele) === pos);
 
     filteredArray = filteredArray.sort((a, b) => a.localeCompare(b));
 
@@ -23,13 +21,5 @@ export class ingredientsSearch {
       newElement.textContent = element;
       ingredientsButton.appendChild(newElement);
     });
-    console.log(filteredArray);
-    this.createSessionsStorage(filteredArray);
-  }
-
-  static createSessionsStorage (array) {
-    if (sessionStorage.getItem('ingredientsArray') == null) {
-      sessionStorage.setItem('ingredientsArray', JSON.stringify(array));
-    }
   }
 }

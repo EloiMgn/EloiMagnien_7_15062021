@@ -61,46 +61,37 @@
         <i class="fas fa-search main__search__icon"></i>
 
         <div class="dropdown">
-            <!-- <input type="search" id="second__search__ingredients" class="dropbtn second__search__ingredients"
-                placeholder="Ingrédients">
-            <div id="myDropdown_ingredients" class="dropdown-content ingredients">
-            </div> -->
-            <input list="ingredients" class="dropbtn second__search--ingredients" type="text" id="choix_ingredients"
-                placeholder="Ingrédients">
-            <datalist name="ingredients" id="ingredients" class="dropdown-content ingredients">
-            </datalist>
-            <input list="appliances" class="dropbtn second__search--appliances" type="text" id="choix_appliances"
-                placeholder="Appareils">
-            <datalist name="appliances" id="appliances" class="dropdown-content appliances">
-            </datalist>
-            <input list="ustensils" class="dropbtn second__search--ustensils" type="text" id="choix_ustensils"
-                placeholder="Ustensiles">
-            <datalist name="ustensils" id="ustensils" class="dropdown-content ustensils">
-            </datalist>
+            <div class="ingredientSearch">
+                <div class="searchBar">
+                    <input type="search" id="choice_ingredients" class="dropbtn searchBar--ingredients"
+                        placeholder="Ingrédients">
+                    <i id="ingredientsArrow" class="searchArrow fas fa-chevron-down"></i>
+                </div>
+                <div id="ingredients" class="dropdown-content ingredients"></div>
+            </div>
+
+            <div class="appliancesSearch">
+                <div class="searchBar">
+                    <input type="search" id="choice_appliances" class="dropbtn searchBar--appliances"
+                        placeholder="Appareils">
+                    <i id="appliancesArrow" class="searchArrow fas fa-chevron-down"></i>
+                </div>
+                <div id="appliances" class="dropdown-content appliances"></div>
+            </div>
+
+            <div class="ustensilsSearch">
+                <div class="searchBar">
+                    <input type="search" id="choice_ustensils" class="dropbtn searchBar--ustensils"
+                        placeholder="Ustensiles">
+                    <i id="ustensilsArrow" class="searchArrow fas fa-chevron-down"></i>
+                </div>
+                <div id="ustensils" class="dropdown-content ustensils"></div>
+            </div>
+
         </div>
     </nav>
-    <!-- <section id="selection" class="selection">
-        <div id="selection__card" class="selection__card">
-            <img src="./images/recettes/recette.jpg" alt="recipe image" class="selection__card__img">
-            <div class="selection__card__top">
-                <h2 class="selection__card__top__title">Limonade de Coco</h2>
-                <h3 class="selection__card__top__time"><i class="far fa-clock"></i> 10 min</h3>
-            </div>
-            <div class="selection__card__bottom">
-                <ul class="selection__card__bottom__ingredients">
-                    <li>Lait de coco:</li>
-                    <li>Jus de citron:</li>
-                    <li>Crème de coco:</li>
-                    <li>Sucre:</li>
-                    <li>Glaçons:</li>
-                </ul>
-                <p class="selection__card__bottom__recipe">
-                    Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée
-                </p>
-            </div>
-        </div>
-    </section> -->
     <script type="module" src="index.js"></script>
+    <script type="module" src="./JS/mainSearch.js"></script>
 </body>
 
 </html>

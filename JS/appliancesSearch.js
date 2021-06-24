@@ -1,18 +1,16 @@
 import { recipes } from '../datas/recipes.js';
 
-// export class ingredientsSearch {
-// }
+export const appliancesArray = [];
 export class appliancesSearch {
   static searchAppliance () {
     const appliancesButton = document.getElementById('appliances');
-    const elementsArray = [];
 
     for (let i = 0; i < recipes.length; i++) {
       const elements = recipes[i].appliance;
-      elementsArray.push(elements);
+      appliancesArray.push(elements);
     }
 
-    let filteredArray = elementsArray.filter((ele, pos) => elementsArray.indexOf(ele) === pos);
+    let filteredArray = appliancesArray.filter((ele, pos) => appliancesArray.indexOf(ele) === pos);
 
     filteredArray = filteredArray.sort((a, b) => a.localeCompare(b));
 
@@ -21,12 +19,5 @@ export class appliancesSearch {
       newElement.textContent = element;
       appliancesButton.appendChild(newElement);
     });
-    this.createSessionsStorage(filteredArray);
-  }
-
-  static createSessionsStorage (array) {
-    if (sessionStorage.getItem('appliancesArray') == null) {
-      sessionStorage.setItem('appliancesArray', JSON.stringify(array));
-    }
   }
 }

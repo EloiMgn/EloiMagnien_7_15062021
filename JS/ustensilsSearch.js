@@ -1,17 +1,16 @@
 import { recipes } from '../datas/recipes.js';
 
+export const ustensilsArray = [];
 export class ustensilsSearch {
   static searchUstensil () {
     const ustensilsButton = document.getElementById('ustensils');
-    const elementsArray = [];
-
     for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ustensils.length; j++) {
         const elements = recipes[i].ustensils[j];
-        elementsArray.push(elements);
+        ustensilsArray.push(elements);
       }
     }
-    let filteredArray = elementsArray.filter((ele, pos) => elementsArray.indexOf(ele) === pos);
+    let filteredArray = ustensilsArray.filter((ele, pos) => ustensilsArray.indexOf(ele) === pos);
 
     filteredArray = filteredArray.sort((a, b) => a.localeCompare(b));
 
@@ -20,13 +19,5 @@ export class ustensilsSearch {
       newElement.textContent = element;
       ustensilsButton.appendChild(newElement);
     });
-
-    this.createSessionsStorage(filteredArray);
-  }
-
-  static createSessionsStorage (array) {
-    if (sessionStorage.getItem('ustensilsArray') == null) {
-      sessionStorage.setItem('ustensilsArray', JSON.stringify(array));
-    }
   }
 }
