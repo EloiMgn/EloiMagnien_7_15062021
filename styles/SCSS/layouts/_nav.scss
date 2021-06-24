@@ -1,0 +1,31 @@
+.main__search {
+  width: 100%;
+  height: 70px;
+  background: #E7E7E7;
+  border-radius: 5px;
+  margin: 10px;
+  border: none;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  padding-left: 20px;
+  outline: none;
+
+  &::placeholder {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 162px;
+    right: 70px;
+    font-size: 170%;
+
+  }
+}

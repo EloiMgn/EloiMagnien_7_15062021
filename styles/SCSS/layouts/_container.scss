@@ -1,0 +1,86 @@
+.selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: fit-content;
+    &__card {
+        background: #E7E7E7;
+        border-radius: 5px;
+        width: 380px;
+        height: 364px;
+        margin: 30px;
+        &__img {
+            width: 100%;
+            min-width: 100%;
+            min-height: 180px;
+            height: 180px;
+            border-top-left-radius: 5px; 
+            border-top-right-radius: 5px; 
+        }
+
+        &__top {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+
+            &__title {
+                font-family: Lato;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                margin-left: 20px;
+            }
+            &__time {
+                font-family: Lato;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 18px;
+                line-height: 22px;
+                margin-right: 20px;
+                display: flex;
+                justify-content: space-between;
+                width: 80px;
+                align-items: center;
+            }
+        }
+
+        &__bottom {
+            display: flex;
+            justify-content: space-between;
+
+            &__ingredients {
+                max-width: 50%;
+                font-family: Lato;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 14px;
+                margin-left: 20px;
+            }
+
+            &__recipe {
+                max-width: 35%;
+                height: 96px;
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                margin-right: 20px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+.list__element{
+    display: flex;
+    justify-content: flex-start;
+    &__name{
+        width: fit-content;
+    }
+    &__quantity{
+        font-weight: normal;
+        margin-left: 2px;
+    }
+}

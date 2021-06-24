@@ -1,17 +1,218 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 6 | @import "./base/typography";
- *   |         ^^^^^^^^^^^^^^^^^^^
- *   '
- *   styles\SCSS\main.scss 6:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 6 \2502  @import \"./base/typography\";\d\a   \2502          ^^^^^^^^^^^^^^^^^^^\a   \2575 \a   styles\\SCSS\\main.scss 6:9  root stylesheet";
+body {
+  margin: 40px 60px;
 }
+
+/* Dropdown Button */
+.searchBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 220px;
+}
+.searchBar--ingredients {
+  background-color: #3282F7;
+}
+.searchBar--appliances {
+  background-color: #68D9A4;
+}
+.searchBar--ustensils {
+  background-color: #ED6454;
+}
+
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.dropbtn {
+  width: 100%;
+  height: 70px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  margin-left: 20px;
+  outline: none;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.dropbtn::placeholder {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+}
+.dropbtn:focus {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.searchArrow {
+  position: relative;
+  right: 40px;
+  color: #ffffff;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: flex-start;
+}
+.dropdown-content {
+  display: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.main__logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+}
+.main__logo__img {
+  width: 50px;
+  height: 47px;
+}
+.main__logo__text {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 47px;
+  text-align: center;
+  color: #D04F4F;
+}
+
+.main__search {
+  width: 100%;
+  height: 70px;
+  background: #E7E7E7;
+  border-radius: 5px;
+  margin: 10px;
+  border: none;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  padding-left: 20px;
+  outline: none;
+}
+.main__search::placeholder {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+.main__search__icon {
+  position: absolute;
+  top: 162px;
+  right: 70px;
+  font-size: 170%;
+}
+
+.selection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: fit-content;
+}
+.selection__card {
+  background: #E7E7E7;
+  border-radius: 5px;
+  width: 380px;
+  height: 364px;
+  margin: 30px;
+}
+.selection__card__img {
+  width: 100%;
+  min-width: 100%;
+  min-height: 180px;
+  height: 180px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.selection__card__top {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.selection__card__top__title {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  margin-left: 20px;
+}
+.selection__card__top__time {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  align-items: center;
+}
+.selection__card__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+.selection__card__bottom__ingredients {
+  max-width: 50%;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  margin-left: 20px;
+}
+.selection__card__bottom__recipe {
+  max-width: 35%;
+  height: 96px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.list__element {
+  display: flex;
+  justify-content: flex-start;
+}
+.list__element__name {
+  width: fit-content;
+}
+.list__element__quantity {
+  font-weight: normal;
+  margin-left: 2px;
+}
+
+/*# sourceMappingURL=style.css.map */
