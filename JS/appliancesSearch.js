@@ -1,6 +1,6 @@
 import { recipes } from '../datas/recipes.js';
+import { appliancesArray } from './mainSearch.js';
 
-export const appliancesArray = [];
 export class appliancesSearch {
   static searchAppliance () {
     const appliancesButton = document.getElementById('appliances');

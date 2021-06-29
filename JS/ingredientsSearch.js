@@ -1,6 +1,8 @@
 import { recipes } from '../datas/recipes.js';
+// import { ingredientsArray } from './mainSearch.js';
+// import { result } from './mainSearch.js';
 
-export const ingredientsArray = [];
+export let ingredientsArray = [];
 export class ingredientsSearch {
   static searchIngredient () {
     const ingredientsButton = document.getElementById('ingredients');
@@ -8,6 +10,7 @@ export class ingredientsSearch {
     for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
         const elements = recipes[i].ingredients[j].ingredient;
+
         ingredientsArray.push(elements);
       }
     }
@@ -17,9 +20,12 @@ export class ingredientsSearch {
     filteredArray = filteredArray.sort((a, b) => a.localeCompare(b));
 
     filteredArray.forEach(element => {
-      const newElement = document.createElement('option');
+      const newElement = document.createElement('a');
       newElement.textContent = element;
+      newElement.classList.add('option');
       ingredientsButton.appendChild(newElement);
     });
+    ingredientsArray = filteredArray;
+    console.log(ingredientsArray);
   }
 }

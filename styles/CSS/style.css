@@ -2,28 +2,36 @@ body {
   margin: 40px 60px;
 }
 
-/* Dropdown Button */
-.searchBar {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 220px;
-}
-.searchBar--ingredients {
-  background-color: #3282F7;
-}
-.searchBar--appliances {
-  background-color: #68D9A4;
-}
-.searchBar--ustensils {
-  background-color: #ED6454;
-}
-
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-results-button,
 input[type=search]::-webkit-search-results-decoration {
   display: none;
+}
+
+.second__search {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: fit-content;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.Search--ingredients {
+  background-color: #3282F7;
+}
+.Search--appliances {
+  background-color: #68D9A4;
+}
+.Search--ustensils {
+  background-color: #ED6454;
 }
 
 .dropbtn {
@@ -59,6 +67,23 @@ input[type=search]::-webkit-search-results-decoration {
   color: #ffffff;
   border-color: #ffffff;
 }
+.dropbtn--ingredients {
+  background-color: #3282F7;
+}
+.dropbtn--appliances {
+  background-color: #68D9A4;
+}
+.dropbtn--ustensils {
+  background-color: #ED6454;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 220px;
+  margin: 10px;
+}
 
 .searchArrow {
   position: relative;
@@ -66,12 +91,26 @@ input[type=search]::-webkit-search-results-decoration {
   color: #ffffff;
 }
 
-.dropdown {
-  display: flex;
-  justify-content: flex-start;
-}
-.dropdown-content {
+.options {
   display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-height: 400px;
+  height: 100%;
+  width: auto;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin: 10px;
+  overflow: auto;
+}
+
+.option {
+  margin: 2px 8px 2px 2px;
 }
 
 header {

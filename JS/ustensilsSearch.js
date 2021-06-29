@@ -1,6 +1,6 @@
 import { recipes } from '../datas/recipes.js';
+import { ustensilsArray } from './mainSearch.js';
 
-export const ustensilsArray = [];
 export class ustensilsSearch {
   static searchUstensil () {
     const ustensilsButton = document.getElementById('ustensils');

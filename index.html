@@ -60,38 +60,39 @@
             placeholder="Rechercher un ingrédient, appareil, ustensiles, ou une recette">
         <i class="fas fa-search main__search__icon"></i>
 
-        <div class="dropdown">
-            <div class="ingredientSearch">
-                <div class="searchBar">
-                    <input type="search" id="choice_ingredients" class="dropbtn searchBar--ingredients"
-                        placeholder="Ingrédients">
+        <div class="second__search">
+
+            <div class="Search" id="Search--ingredients">
+                <div class="searchBar searchBar--ingredients">
+                    <input type="search" id="choice_ingredients" class="dropbtn dropbtn--ingredients" placeholder="Ingrédients">
                     <i id="ingredientsArrow" class="searchArrow fas fa-chevron-down"></i>
                 </div>
-                <div id="ingredients" class="dropdown-content ingredients"></div>
+                <div id="ingredients" class="options options--ingredients"></div>
             </div>
 
-            <div class="appliancesSearch">
-                <div class="searchBar">
-                    <input type="search" id="choice_appliances" class="dropbtn searchBar--appliances"
-                        placeholder="Appareils">
+            <div class="Search" id="Search--appliances">
+                <div class="searchBar searchBar--appliances">
+                    <input type="search" id="choice_appliances" class="dropbtn dropbtn--appliances" placeholder="Appareils">
                     <i id="appliancesArrow" class="searchArrow fas fa-chevron-down"></i>
                 </div>
-                <div id="appliances" class="dropdown-content appliances"></div>
+                <div id="appliances" class="options options--appliances"></div>
             </div>
 
-            <div class="ustensilsSearch">
-                <div class="searchBar">
-                    <input type="search" id="choice_ustensils" class="dropbtn searchBar--ustensils"
-                        placeholder="Ustensiles">
+            <div class="Search" id="Search--ustensils">
+                <div class="searchBar searchBar--ustensils">
+                    <input type="search" id="choice_ustensils" class="dropbtn dropbtn--ustensils" placeholder="Ustensiles">
                     <i id="ustensilsArrow" class="searchArrow fas fa-chevron-down"></i>
                 </div>
-                <div id="ustensils" class="dropdown-content ustensils"></div>
+                <div id="ustensils" class="options options--ustensils"></div>
+
             </div>
 
         </div>
     </nav>
     <script type="module" src="index.js"></script>
     <script type="module" src="./JS/mainSearch.js"></script>
+    <script type="module" src="./JS/modifyArrowApparence.js"></script>
+    <script type="module" src="./JS/showIngredientSelection.js"></script>
 </body>
 
 </html>

@@ -1,10 +1,25 @@
-/* Dropdown Button */
-.searchBar {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 220px;
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
 
+.second__search {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.Search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    // inline-size: 500px;
 
     &--ingredients {
         background-color: $ingredientsColor;
@@ -19,14 +34,7 @@
     }
 }
 
-input[type="search"]::-webkit-search-decoration,
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration { 
-    display: none;
-}
-
-.dropbtn {
+.dropbtn{
     width: 100%;
     height: 70px;
     border: none;
@@ -42,7 +50,6 @@ input[type="search"]::-webkit-search-results-decoration {
     color: $textColor;
     border-color: $textColor;
 
-
     &::placeholder {
         font-family: Lato;
         font-style: normal;
@@ -51,7 +58,7 @@ input[type="search"]::-webkit-search-results-decoration {
         line-height: 22px;
         color: $textColor;
     }
-    &:focus{
+        &:focus{
         font-family: Lato;
         font-style: normal;
         font-weight: bold;
@@ -60,6 +67,26 @@ input[type="search"]::-webkit-search-results-decoration {
         color: $textColor;
         border-color: $textColor;
     }
+    &--ingredients {
+        background-color: $ingredientsColor;
+
+    }
+
+    &--appliances {
+        background-color: $appliancesColor;
+    }
+
+    &--ustensils {
+        background-color: $ustensilsColor;
+    }
+}
+
+.searchBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 220px;
+    margin: 10px;
 }
 
 .searchArrow {
@@ -68,11 +95,24 @@ input[type="search"]::-webkit-search-results-decoration {
     color: $textColor;
 }
 
-.dropdown {
-    display: flex;
+.options{
+    display: none;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: flex-start;
+    max-height: 400px;
+    height: 100%;
+    width: auto;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: $textColor;
+    margin: 10px;
+    overflow: auto;
+}
 
-    &-content {
-        display: none;
-    }
+.option{
+    margin: 2px 8px 2px 2px;
 }
