@@ -1,5 +1,5 @@
-import { recipes } from '../datas/recipes.js';
-import { appliancesArray } from './mainSearch.js';
+import { recipes } from '../../../datas/recipes.js';
+import { appliancesArray } from '../../mainSearch.js';
 
 export class appliancesSearch {
   static searchAppliance () {

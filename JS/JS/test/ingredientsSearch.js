@@ -1,4 +1,4 @@
-import { recipes } from '../datas/recipes.js';
+import { recipes } from '../../../datas/recipes.js';
 
 export let ingredientsArray = [];
 export class ingredientsSearch {

@@ -29,6 +29,7 @@ export function removeDuplicates (inputArray, outputArray) {
     outputArray.push(element);
   });
 }
+
 export function sortArray (inputArray) {
   inputArray.sort((a, b) => a.localeCompare(b));
 }

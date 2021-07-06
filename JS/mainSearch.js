@@ -1,6 +1,6 @@
 import { recipes } from '../datas/recipes.js';
 import { recipesSelection } from './recipesSelection.js';
-import { ingredientsArray } from './ingredientsSearch.js';
+// import { ingredientsArray } from './ingredientsSearch.js';
 // export const ingredientsArray = [];
 export const ustensilsArray = [];
 export const appliancesArray = [];

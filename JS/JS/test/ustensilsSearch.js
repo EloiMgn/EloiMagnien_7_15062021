@@ -1,5 +1,5 @@
-import { recipes } from '../datas/recipes.js';
-import { ustensilsArray } from './mainSearch.js';
+import { recipes } from '../../../datas/recipes.js';
+import { ustensilsArray } from '../../mainSearch.js';
 
 export class ustensilsSearch {
   static searchUstensil () {
