@@ -1,8 +1,8 @@
-const ingredientsSearch = document.getElementById('choice_ingredients');
+const ingredientsSearch = document.getElementById('choice__ingredients');
 const ingredientsArrow = document.getElementById('ingredientsArrow');
-const appliancesSearch = document.getElementById('choice_appliances');
+const appliancesSearch = document.getElementById('choice__appliances');
 const appliancesArrow = document.getElementById('appliancesArrow');
-const ustensilsSearch = document.getElementById('choice_ustensils');
+const ustensilsSearch = document.getElementById('choice__ustensils');
 const ustensilsArrow = document.getElementById('ustensilsArrow');
 
 function openArrow (button, arrow) {

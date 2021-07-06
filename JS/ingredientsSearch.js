@@ -1,6 +1,4 @@
 import { recipes } from '../datas/recipes.js';
-// import { ingredientsArray } from './mainSearch.js';
-// import { result } from './mainSearch.js';
 
 export let ingredientsArray = [];
 export class ingredientsSearch {
@@ -10,7 +8,6 @@ export class ingredientsSearch {
     for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
         const elements = recipes[i].ingredients[j].ingredient;
-
         ingredientsArray.push(elements);
       }
     }
@@ -26,6 +23,6 @@ export class ingredientsSearch {
       ingredientsButton.appendChild(newElement);
     });
     ingredientsArray = filteredArray;
-    console.log(ingredientsArray);
+    console.log(filteredArray);
   }
 }

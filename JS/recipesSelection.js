@@ -1,12 +1,11 @@
-import { recipes } from '../datas/recipes.js';
 
 export class recipesSelection {
   static createRecipesSelection (datas) {
     this.createSelectionContainer();
-    this.createSelectionCard();
+    this.createSelectionCard(datas);
     this.createCardImg();
-    this.createCardDescriptionTop();
-    this.createCardDescriptionBottom();
+    this.createCardDescriptionTop(datas);
+    this.createCardDescriptionBottom(datas);
   }
 
   static createSelectionContainer () {
@@ -17,9 +16,9 @@ export class recipesSelection {
     body.appendChild(recipesSelection);
   }
 
-  static createSelectionCard () {
+  static createSelectionCard (datas) {
     const recipesSelection = document.getElementById('recipes__selection');
-    recipes.forEach((recipe) => {
+    datas.forEach((recipe) => {
       const recipeCard = document.createElement('div');
       recipeCard.classList.add('selection__card');
       recipeCard.setAttribute('id', recipe.id);
@@ -38,31 +37,31 @@ export class recipesSelection {
     });
   }
 
-  static createCardDescriptionTop () {
+  static createCardDescriptionTop (datas) {
     const recipesSelectionCards = document.querySelectorAll('.selection__card');
     recipesSelectionCards.forEach((card) => {
       const recipeCardDescriptionTop = document.createElement('div');
       recipeCardDescriptionTop.classList.add('selection__card__top');
       card.appendChild(recipeCardDescriptionTop);
-      this.createRecipeTitle(card.id, recipeCardDescriptionTop);
-      this.createRecipeTime(card.id, recipeCardDescriptionTop);
+      this.createRecipeTitle(card.id, recipeCardDescriptionTop, datas);
+      this.createRecipeTime(card.id, recipeCardDescriptionTop, datas);
     });
   }
 
-  static createRecipeTitle (id, descriptionTop) {
-    for (let i = 0; i < recipes.length; i++) {
-      if (recipes[i].id === parseInt(id)) {
+  static createRecipeTitle (id, descriptionTop, datas) {
+    for (let i = 0; i < datas.length; i++) {
+      if (datas[i].id === parseInt(id)) {
         const recipeTitle = document.createElement('h2');
         descriptionTop.appendChild(recipeTitle);
-        recipeTitle.textContent = `${recipes[i].name}`;
+        recipeTitle.textContent = `${datas[i].name}`;
         recipeTitle.classList.add('selection__card__top__title');
       }
     }
   }
 
-  static createRecipeTime (id, descriptionTop) {
-    for (let i = 0; i < recipes.length; i++) {
-      if (recipes[i].id === parseInt(id)) {
+  static createRecipeTime (id, descriptionTop, datas) {
+    for (let i = 0; i < datas.length; i++) {
+      if (datas[i].id === parseInt(id)) {
         const recipeTime = document.createElement('div');
         recipeTime.classList.add('selection__card__top__time');
         descriptionTop.appendChild(recipeTime);
@@ -70,31 +69,31 @@ export class recipesSelection {
         const timeText = document.createElement('p');
         recipeTime.appendChild(timeLogo);
         recipeTime.appendChild(timeText);
-        timeText.textContent = `${recipes[i].time} min`;
+        timeText.textContent = `${datas[i].time} min`;
         timeLogo.classList.add('far');
         timeLogo.classList.add('fa-clock');
       }
     }
   }
 
-  static createCardDescriptionBottom () {
+  static createCardDescriptionBottom (datas) {
     const recipesSelectionCards = document.querySelectorAll('.selection__card');
     recipesSelectionCards.forEach((card) => {
       const recipeCardDescriptionBottom = document.createElement('div');
       recipeCardDescriptionBottom.classList.add('selection__card__bottom');
       card.appendChild(recipeCardDescriptionBottom);
-      this.createRecipeIngredientsList(card.id, recipeCardDescriptionBottom);
-      this.createRecipeDescription(card.id, recipeCardDescriptionBottom);
+      this.createRecipeIngredientsList(card.id, recipeCardDescriptionBottom, datas);
+      this.createRecipeDescription(card.id, recipeCardDescriptionBottom, datas);
     });
   }
 
-  static createRecipeIngredientsList (id, descriptionBottom) {
-    for (let i = 0; i < recipes.length; i++) {
-      if (recipes[i].id === parseInt(id)) {
+  static createRecipeIngredientsList (id, descriptionBottom, datas) {
+    for (let i = 0; i < datas.length; i++) {
+      if (datas[i].id === parseInt(id)) {
         const recipeIngredientsList = document.createElement('ul');
         recipeIngredientsList.classList.add('selection__card__bottom__ingredients');
         descriptionBottom.appendChild(recipeIngredientsList);
-        recipes[i].ingredients.forEach((ingredient) => {
+        datas[i].ingredients.forEach((ingredient) => {
           const listElement = document.createElement('div');
           recipeIngredientsList.appendChild(listElement);
           listElement.classList.add('list__element');
@@ -133,14 +132,21 @@ export class recipesSelection {
     }
   }
 
-  static createRecipeDescription (id, descriptionBottom) {
-    for (let i = 0; i < recipes.length; i++) {
-      if (recipes[i].id === parseInt(id)) {
+  static createRecipeDescription (id, descriptionBottom, datas) {
+    for (let i = 0; i < datas.length; i++) {
+      if (datas[i].id === parseInt(id)) {
         const recipeDescription = document.createElement('p');
         recipeDescription.classList.add('selection__card__bottom__recipe');
         descriptionBottom.appendChild(recipeDescription);
-        recipeDescription.textContent = `${recipes[i].description}`;
+        recipeDescription.textContent = `${datas[i].description}`;
       }
+    }
+  }
+
+  static deleteRecipeSelection () {
+    const myNode = document.getElementById('recipes__selection');
+    while (myNode.firstChild) {
+      myNode.removeChild(myNode.lastChild);
     }
   }
 }
