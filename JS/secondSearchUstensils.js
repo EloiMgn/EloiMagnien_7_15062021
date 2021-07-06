@@ -11,7 +11,7 @@ export function runUstensilSearch () {
   if (ustensilsButton.value === '') {
     for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ustensils.length; j++) {
-        const elements = recipes[i].ustensils[j];
+        const elements = capitalizeFirstLetter(recipes[i].ustensils[j]);
         foundUstensils.push(elements);
       }
     }
@@ -44,11 +44,15 @@ function addFoundUstensils () {
   const elements = [];
   for (let i = 0; i < secondSearchResults.filteredRecipes.length; i++) {
     for (let j = 0; j < secondSearchResults.filteredRecipes[i].ustensils.length; j++) {
-      const element = secondSearchResults.filteredRecipes[i].ustensils[j];
+      const element = capitalizeFirstLetter(secondSearchResults.filteredRecipes[i].ustensils[j]);
       if (element.toLowerCase().indexOf(`${ustensilsButton.value.toLowerCase()}`) !== -1) {
         elements.push(element);
       }
     }
   }
   removeDuplicates(elements, secondSearchResults.foundUstensils);
+}
+
+function capitalizeFirstLetter (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
