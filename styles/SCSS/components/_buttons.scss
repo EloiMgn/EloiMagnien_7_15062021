@@ -93,6 +93,7 @@ input[type="search"]::-webkit-search-results-decoration {
     position: relative;
     right: 40px;
     color: $textColor;
+    cursor: pointer;
 }
 
 .options{
@@ -113,6 +114,51 @@ input[type="search"]::-webkit-search-results-decoration {
     overflow: auto;
 }
 
-.option{
+.option__ingredients{
     margin: 2px 8px 2px 2px;
+    cursor: pointer;
 }
+.option__appliances{
+    margin: 2px 8px 2px 2px;
+    cursor: pointer;
+}
+.option__ustensils{
+    margin: 2px 8px 2px 2px;
+    cursor: pointer;
+}
+
+.secondSearch__results{
+    display: flex;
+    justify-content: flex-start;
+    &__select{
+        background: #3282F7;
+        border-radius: 5px;
+        width: 107px;
+        height: 37px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 5px;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: #FFFFFF;
+        padding: 5px;
+    }
+
+    &__text{
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 17px;
+        color: #FFFFFF;
+    }
+}
+
+.deleteSelectedResult{
+    cursor: pointer;
+}
+

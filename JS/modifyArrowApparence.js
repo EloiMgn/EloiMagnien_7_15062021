@@ -1,8 +1,8 @@
 const ingredientsSearch = document.getElementById('choice__ingredients');
-const ingredientsArrow = document.getElementById('ingredientsArrow');
 const appliancesSearch = document.getElementById('choice__appliances');
-const appliancesArrow = document.getElementById('appliancesArrow');
 const ustensilsSearch = document.getElementById('choice__ustensils');
+const ingredientsArrow = document.getElementById('ingredientsArrow');
+const appliancesArrow = document.getElementById('appliancesArrow');
 const ustensilsArrow = document.getElementById('ustensilsArrow');
 
 function openArrow (button, arrow) {
@@ -17,6 +17,9 @@ function closeArrow (button, arrow) {
   arrow.classList.remove('fa-chevron-up');
   arrow.classList.add('fa-chevron-down');
   button.addEventListener('blur', () => {
+    closeArrow(button, arrow);
+  });
+  arrow.addEventListener('click', () => {
     closeArrow(button, arrow);
   });
 };

@@ -46,7 +46,49 @@ export function showList (array, listId) {
   array.forEach(element => {
     const newElement = document.createElement('a');
     newElement.textContent = element;
-    newElement.classList.add('option');
+    newElement.classList.add('option' + '__' + `${listId}`);
     list.appendChild(newElement);
   });
+}
+
+export function selectResult (listId) {
+  const listedResults = document.querySelectorAll('.option' + '__' + `${listId}`);
+  const resultsContainer = document.getElementById('secondSearch__results');
+
+  listedResults.forEach((element) => {
+    element.addEventListener('click', () => {
+      const resultList = document.querySelectorAll('.secondSearch__results__text');
+      for (let i = 0; i < resultList.length; i++) {
+        const resultListText = resultList[i].innerText;
+      }
+        const newElement = document.createElement('div');
+        newElement.classList.add('secondSearch__results' + '__' + 'select');
+        newElement.classList.add(`${listId}`);
+        resultsContainer.appendChild(newElement);
+
+        const newText = document.createElement('p');
+        newText.classList.add('secondSearch__results' + '__' + 'text');
+        newText.classList.add(`${listId}`);
+        newText.textContent = element.innerHTML;
+        newElement.appendChild(newText);
+
+        const newCross = document.createElement('i');
+        newCross.classList.add('far');
+        newCross.classList.add('fa-times-circle');
+        newCross.classList.add('deleteSelectedResult');
+        newElement.appendChild(newCross);
+    });
+  });
+}
+
+export function deleteSelectedResult () {
+  const selectedResultsClose = document.querySelectorAll('.deleteSelectedResult');
+  const selectedResults = document.querySelectorAll('.secondSearch__results__select');
+  for (let i = 0; i < selectedResultsClose.length; i++) {
+    for (let j = 0; j < selectedResults.length; j++) {
+      selectedResultsClose[i].addEventListener('click', () => {
+        selectedResults[0].remove();
+      });
+    }
+  }
 }
