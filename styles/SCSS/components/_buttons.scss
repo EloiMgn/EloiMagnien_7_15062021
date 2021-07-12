@@ -131,7 +131,6 @@ input[type="search"]::-webkit-search-results-decoration {
     display: flex;
     justify-content: flex-start;
     &__select{
-        background: #3282F7;
         border-radius: 5px;
         width: 107px;
         height: 37px;
@@ -146,6 +145,16 @@ input[type="search"]::-webkit-search-results-decoration {
         line-height: 17px;
         color: #FFFFFF;
         padding: 5px;
+    }
+
+    .ingredients{
+        background: $ingredientsColor;
+    }
+    .appliances{
+        background: $appliancesColor;
+    }
+    .ustensils{
+        background: $ustensilsColor;
     }
 
     &__text{

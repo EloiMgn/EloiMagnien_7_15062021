@@ -1,5 +1,5 @@
 import { recipes } from '../datas/recipes.js';
-import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList } from './secondSearch.js';
+import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList, selectResult } from './secondSearch.js';
 
 export function runApplianceSearch () {
   const appliancesButton = document.getElementById('choice__appliances');
@@ -16,6 +16,7 @@ export function runApplianceSearch () {
     sortArray(foundAppliances);
     removeDuplicates(foundAppliances, filteredAppliances);
     showList(filteredAppliances, 'appliances');
+    selectResult('appliances');
   }
 
   appliancesButton.addEventListener('input', () => {
@@ -32,6 +33,7 @@ export function runApplianceSearch () {
     addFoundAppliances();
     sortArray(foundAppliances);
     showList(foundAppliances, 'appliances');
+    selectResult('appliances');
   });
 }
 

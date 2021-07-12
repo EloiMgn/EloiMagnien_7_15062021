@@ -130,7 +130,6 @@ input[type=search]::-webkit-search-results-decoration {
   justify-content: flex-start;
 }
 .secondSearch__results__select {
-  background: #3282F7;
   border-radius: 5px;
   width: 107px;
   height: 37px;
@@ -145,6 +144,15 @@ input[type=search]::-webkit-search-results-decoration {
   line-height: 17px;
   color: #FFFFFF;
   padding: 5px;
+}
+.secondSearch__results .ingredients {
+  background: #3282F7;
+}
+.secondSearch__results .appliances {
+  background: #68D9A4;
+}
+.secondSearch__results .ustensils {
+  background: #ED6454;
 }
 .secondSearch__results__text {
   font-family: Lato;

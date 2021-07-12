@@ -1,5 +1,5 @@
 import { recipes } from '../datas/recipes.js';
-import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList, selectResult, deleteSelectedResult } from './secondSearch.js';
+import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList, selectResult } from './secondSearch.js';
 
 export function runIngredientSearch () {
   const ingredientsButton = document.getElementById('choice__ingredients');
@@ -19,7 +19,7 @@ export function runIngredientSearch () {
     removeDuplicates(foundIngredients, filteredIngredients);
     showList(filteredIngredients, 'ingredients');
     selectResult('ingredients');
-    deleteSelectedResult();
+    // deleteSelectedResult();
   }
 
   ingredientsButton.addEventListener('input', () => {
@@ -39,7 +39,7 @@ export function runIngredientSearch () {
     sortArray(foundIngredients);
     showList(foundIngredients, 'ingredients');
     selectResult('ingredients');
-    deleteSelectedResult();
+    // deleteSelectedResult();
   });
 }
 

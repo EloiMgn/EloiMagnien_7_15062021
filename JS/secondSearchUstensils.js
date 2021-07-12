@@ -1,5 +1,5 @@
 import { recipes } from '../datas/recipes.js';
-import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList } from './secondSearch.js';
+import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList, selectResult } from './secondSearch.js';
 
 export function runUstensilSearch () {
   const ustensilsButton = document.getElementById('choice__ustensils');
@@ -18,6 +18,7 @@ export function runUstensilSearch () {
     sortArray(foundUstensils);
     removeDuplicates(foundUstensils, filteredUstensils);
     showList(filteredUstensils, 'ustensils');
+    selectResult('ustensils');
   }
 
   ustensilsButton.addEventListener('input', () => {
@@ -36,6 +37,7 @@ export function runUstensilSearch () {
     addFoundUstensils();
     sortArray(foundUstensils);
     showList(foundUstensils, 'ustensils');
+    selectResult('ustensils');
   });
 }
 
