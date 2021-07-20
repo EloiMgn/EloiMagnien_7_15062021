@@ -7,7 +7,7 @@ export function runApplianceSearch () {
   const filteredAppliances = secondSearchResults.filteredAppliances;
   const foundRecipes = secondSearchResults.foundRecipes;
   const filteredRecipes = secondSearchResults.filteredRecipes;
-
+  // filterRecipes();
   if (appliancesButton.value === '') {
     for (let i = 0; i < recipes.length; i++) {
       const elements = recipes[i].appliance;

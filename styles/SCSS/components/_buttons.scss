@@ -113,6 +113,9 @@ input[type="search"]::-webkit-search-results-decoration {
     margin: 10px;
     overflow: auto;
 }
+.selected{
+    display: none;
+}
 
 .option__ingredients{
     margin: 2px 8px 2px 2px;

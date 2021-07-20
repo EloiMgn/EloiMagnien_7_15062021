@@ -7,7 +7,7 @@ export function runUstensilSearch () {
   const filteredUstensils = secondSearchResults.filteredUstensils;
   const foundRecipes = secondSearchResults.foundRecipes;
   const filteredRecipes = secondSearchResults.filteredRecipes;
-
+  // filterRecipes();
   if (ustensilsButton.value === '') {
     for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ustensils.length; j++) {
@@ -19,6 +19,7 @@ export function runUstensilSearch () {
     removeDuplicates(foundUstensils, filteredUstensils);
     showList(filteredUstensils, 'ustensils');
     selectResult('ustensils');
+    // launchChipsReload();
   }
 
   ustensilsButton.addEventListener('input', () => {
@@ -38,6 +39,7 @@ export function runUstensilSearch () {
     sortArray(foundUstensils);
     showList(foundUstensils, 'ustensils');
     selectResult('ustensils');
+    // launchChipsReload();
   });
 }
 

@@ -1,62 +1,31 @@
 // import { ingredientsArray } from "./ingredientsSearch";
 
-const ingredientsInput = document.getElementById('choice__ingredients');
-const ingredientsBtn = document.getElementById('Search--ingredients');
-const appliancesInput = document.getElementById('choice__appliances');
-const appliancesBtn = document.getElementById('Search--appliances');
-const ustensilsInput = document.getElementById('choice__ustensils');
-const ustensilsBtn = document.getElementById('Search--ustensils');
-const ingredientsArrow = document.getElementById('ingredientsArrow');
-const appliancesArrow = document.getElementById('appliancesArrow');
-const ustensilsArrow = document.getElementById('ustensilsArrow');
+function openList (listId) {
+  const input = document.getElementById(`choice__${listId}`);
+  const options = document.getElementById(`${listId}`);
+  const button = document.getElementById(`Search--${listId}`);
 
-ingredientsInput.addEventListener('focus', () => {
-  const ingredientsOptions = document.getElementById('ingredients');
-  ingredientsOptions.style.display = 'flex';
-  ingredientsBtn.classList.add('Search--ingredients');
-});
-ingredientsArrow.addEventListener('focus', () => {
-  const ingredientsOptions = document.getElementById('ingredients');
-  ingredientsOptions.style.display = 'flex';
-  ingredientsBtn.classList.add('Search--ingredients');
-});
+  input.addEventListener('focus', () => {
+    options.style.display = 'flex';
+    button.classList.add(`Search--${listId}`);
+  });
+}
 
-appliancesInput.addEventListener('focus', () => {
-  const appliancesOptions = document.getElementById('appliances');
-  appliancesOptions.style.display = 'flex';
-  appliancesBtn.classList.add('Search--appliances');
-});
-appliancesArrow.addEventListener('click', () => {
-  const appliancesOptions = document.getElementById('appliances');
-  appliancesOptions.style.display = 'flex';
-  appliancesBtn.classList.add('Search--appliances');
-});
+function closeList (listId) {
+  const arrow = document.getElementById(`${listId}Arrow`);
+  const options = document.getElementById(`${listId}`);
+  const button = document.getElementById(`Search--${listId}`);
 
-ustensilsInput.addEventListener('focus', () => {
-  const ustensilsOptions = document.getElementById('ustensils');
-  ustensilsOptions.style.display = 'flex';
-  ustensilsBtn.classList.add('Search--ustensils');
-});
-ustensilsArrow.addEventListener('click', () => {
-  const ustensilsOptions = document.getElementById('ustensils');
-  ustensilsOptions.style.display = 'flex';
-  ustensilsBtn.classList.add('Search--ustensils');
-});
+  arrow.addEventListener('click', () => {
+    options.style.display = 'none';
+    button.classList.remove(`Search--${listId}`);
+  });
+}
 
-ingredientsArrow.addEventListener('click', () => {
-  const ingredientsOptions = document.getElementById('ingredients');
-  ingredientsOptions.style.display = 'none';
-  ingredientsBtn.classList.remove('Search--ingredients');
-});
+openList('ingredients');
+openList('appliances');
+openList('ustensils');
 
-appliancesArrow.addEventListener('click', () => {
-  const appliancesOptions = document.getElementById('appliances');
-  appliancesOptions.style.display = 'none';
-  appliancesBtn.classList.remove('Search--appliances');
-});
-
-ustensilsArrow.addEventListener('click', () => {
-  const ustensilsOptions = document.getElementById('ustensils');
-  ustensilsOptions.style.display = 'none';
-  ustensilsBtn.classList.remove('Search--ustensils');
-});
+closeList('ingredients');
+closeList('appliances');
+closeList('ustensils');

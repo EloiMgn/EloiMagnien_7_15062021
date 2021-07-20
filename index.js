@@ -1,7 +1,6 @@
 
-import { recipesSelection } from './JS/recipesSelection.js';
-import { recipes } from './datas/recipes.js';
-import { runSecondSearch } from './JS/secondSearch.js';
+import { createRecipesSelection } from './JS/recipesSelection.js';
+import { runSecondSearch, searchResults } from './JS/secondSearch.js';
 
-recipesSelection.createRecipesSelection(recipes);
 runSecondSearch();
+createRecipesSelection(searchResults.recipes);

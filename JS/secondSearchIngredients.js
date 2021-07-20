@@ -7,7 +7,7 @@ export function runIngredientSearch () {
   const filteredIngredients = secondSearchResults.filteredIngredients;
   const foundRecipes = secondSearchResults.foundRecipes;
   const filteredRecipes = secondSearchResults.filteredRecipes;
-
+  // filterRecipes();
   if (ingredientsButton.value === '') {
     for (let i = 0; i < recipes.length; i++) {
       for (let j = 0; j < recipes[i].ingredients.length; j++) {
@@ -19,7 +19,7 @@ export function runIngredientSearch () {
     removeDuplicates(foundIngredients, filteredIngredients);
     showList(filteredIngredients, 'ingredients');
     selectResult('ingredients');
-    // deleteSelectedResult();
+    // launchChipsReload();
   }
 
   ingredientsButton.addEventListener('input', () => {
@@ -39,7 +39,7 @@ export function runIngredientSearch () {
     sortArray(foundIngredients);
     showList(foundIngredients, 'ingredients');
     selectResult('ingredients');
-    // deleteSelectedResult();
+    // launchChipsReload();
   });
 }
 

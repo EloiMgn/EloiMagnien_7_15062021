@@ -1,5 +1,5 @@
 import { recipes } from '../datas/recipes.js';
-import { recipesSelection } from './recipesSelection.js';
+// import { recipesSelection } from './recipesSelection.js';
 // import { ingredientsArray } from './ingredientsSearch.js';
 // export const ingredientsArray = [];
 export const ustensilsArray = [];
@@ -71,9 +71,7 @@ function searchResultsTitle (statutResult, dataResult) {
         result.titleStatut = true;
         result.selectionResult.filter(result.selectionResult[i]);
       } else if (recipes[i].name.toLowerCase().indexOf(`${dataResult.toLowerCase()}`) === -1) {
-        // result.selectionResult.splice(0, result.selectionResult.length);
-        // result.titleStatut = false;
-        // console.log(recipes[i].name.toLowerCase().indexOf(`${dataResult.toLowerCase()}`));
+
       }
     }
   }
@@ -91,18 +89,6 @@ function searchResultsIngredients (statutResult, dataResult, ingredients) {
     }
   }
 }
-
-// function searchIngredientRecipe (ingredientsResults) {
-//   for (let i = 0; i < recipes.length; i++) {
-//     for (let j = 0; j < recipes[i].ingredients.length; j++) {
-//       if (recipes[i].ingredients[j].ingredient === ingredientsResults) {
-//         result.selectionResult.push(recipes[i]);
-//         console.log(result.selectionResult);
-//       }
-//     }
-//   }
-// }
-
 function searchResultsDescription (statutResult, dataResult) {
   if (statutResult === true) {
     for (let i = 0; i < recipes.length; i++) {
