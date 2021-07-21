@@ -1,14 +1,13 @@
 import { runIngredientSearch } from './secondSearchIngredients.js';
 import { runApplianceSearch } from './secondSearchAppliances.js';
 import { runUstensilSearch } from './secondSearchUstensils.js';
-import { recipes } from '../datas/recipes.js';
+// import { recipes } from '../datas/recipes.js';
 import { reloadRecipeSelection } from './recipesSelection.js';
 
 export function runSecondSearch () {
   runIngredientSearch();
   runApplianceSearch();
   runUstensilSearch();
-  filterRecipes();
 }
 
 export const searchResults = {
@@ -33,6 +32,23 @@ export const secondSearchResults = {
   foundUstensils: [],
   filteredUstensils: []
 };
+
+export function selectResult (listId) {
+  const listedResults = document.querySelectorAll('.option' + '__' + `${listId}`);
+
+  for (let i = 0; i < listedResults.length; i++) {
+    listedResults[i].addEventListener('click', () => {
+      if (!listedResults[i].classList.contains('selected')) {
+        listedResults[i].classList.add('selected');
+        addChipToResults(listedResults[i].innerHTML, listId, searchResults.secondSearch.length);
+        resetInputValue(listId);
+        closeList(listId);
+        reloadChips();
+        launchChipsReload();
+      }
+    });
+  }
+}
 
 export function launchChipsReload () {
   const closeElements = document.getElementsByClassName('deleteSelectedResult');
@@ -109,24 +125,6 @@ function addChipToResults (name, listId, id) {
   searchResults.secondSearch.push(chip);
 }
 
-export function selectResult (listId) {
-  const listedResults = document.querySelectorAll('.option' + '__' + `${listId}`);
-
-  for (let i = 0; i < listedResults.length; i++) {
-    listedResults[i].addEventListener('click', () => {
-      if (!listedResults[i].classList.contains('selected')) {
-        listedResults[i].classList.add('selected');
-        addChipToResults(listedResults[i].innerHTML, listId, searchResults.secondSearch.length);
-        resetInputValue(listId);
-        closeList(listId);
-        reloadChips();
-        launchChipsReload();
-        filterRecipes();
-      }
-    });
-  }
-}
-
 function addChipsToList () {
   const resultsContainer = document.getElementById('secondSearch__results');
   searchResults.secondSearch.forEach((element) => {
@@ -176,32 +174,4 @@ export function showList (array, listId) {
     newElement.classList.add('option' + '__' + `${listId}`);
     list.appendChild(newElement);
   });
-}
-
-export function filterRecipes () {
-  const selectedItems = searchResults.secondSearch;
-  const foundRecipes = searchResults.recipes;
-  const recipesTemps = [];
-  if (selectedItems.length === 0) {
-    recipes.forEach((recipe) => {
-      foundRecipes.push(recipe);
-    });
-    foundRecipes.shift();
-  } else if (selectedItems.length !== 0) {
-    for (let i = 0; i < selectedItems.length; i++) {
-      for (let j = 0; j < foundRecipes.length; j++) {
-        for (let h = 0; h < foundRecipes[j].ingredients.length; h++) {
-          if (foundRecipes[j].ingredients[h].ingredient === selectedItems[i].name) {
-            recipesTemps.push(foundRecipes[j]);
-          }
-        }
-        foundRecipes[j].ustensils.forEach(ustensil => {
-          if (ustensil === selectedItems[i].name) {
-            console.log('eloi');
-          }
-        });
-      }
-    }
-  }
-  reloadRecipeSelection(recipesTemps);
 }
