@@ -1,13 +1,14 @@
 import { runIngredientSearch } from './secondSearchIngredients.js';
 import { runApplianceSearch } from './secondSearchAppliances.js';
 import { runUstensilSearch } from './secondSearchUstensils.js';
-// import { recipes } from '../datas/recipes.js';
+import { recipes } from '../datas/recipes.js';
 import { reloadRecipeSelection } from './recipesSelection.js';
 
 export function runSecondSearch () {
   runIngredientSearch();
   runApplianceSearch();
   runUstensilSearch();
+  filterRecipes();
 }
 
 export const searchResults = {
@@ -45,6 +46,7 @@ export function selectResult (listId) {
         closeList(listId);
         reloadChips();
         launchChipsReload();
+        filterRecipes();
       }
     });
   }
@@ -58,7 +60,7 @@ export function launchChipsReload () {
       removeClassName(item);
       reloadChips();
       launchChipsReload();
-      reloadRecipeSelection(searchResults.recipes);
+      filterRecipes();
     });
   }
 }
@@ -174,4 +176,34 @@ export function showList (array, listId) {
     newElement.classList.add('option' + '__' + `${listId}`);
     list.appendChild(newElement);
   });
+}
+
+export function filterRecipes () {
+  const selectedItems = searchResults.secondSearch;
+  const foundRecipes = searchResults.recipes;
+  const filteredRecipes = [];
+  const recipesTemps = [];
+  if (selectedItems.length === 0) {
+    recipes.forEach((recipe) => {
+      foundRecipes.push(recipe);
+    });
+    foundRecipes.shift();
+    removeDuplicates(foundRecipes, filteredRecipes);
+    resetArray(foundRecipes);
+    filteredRecipes.forEach(recipe => {
+      foundRecipes.push(recipe);
+    });
+    reloadRecipeSelection(foundRecipes);
+  } else if (selectedItems.length !== 0) { // ===== Tri par recherche d'ingredients =====
+    for (let i = 0; i < selectedItems.length; i++) {
+      for (let j = 0; j < foundRecipes.length; j++) {
+        for (let h = 0; h < foundRecipes[j].ingredients.length; h++) {
+          if (foundRecipes[j].ingredients[h].ingredient === selectedItems[i].name) {
+            recipesTemps.push(foundRecipes[j]);
+          }
+        }
+      }
+    }
+    reloadRecipeSelection(recipesTemps);
+  }
 }

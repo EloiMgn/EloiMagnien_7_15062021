@@ -143,9 +143,11 @@ function createRecipeDescription (id, descriptionBottom, datas) {
 }
 
 export function reloadRecipeSelection (datas) {
-  createRecipesSelection(datas);
   const myNode = document.getElementById('recipes__selection');
-  while (myNode.firstChild) {
-    myNode.removeChild(myNode.lastChild);
+  if (myNode) {
+    while (myNode.firstChild) {
+      myNode.removeChild(myNode.lastChild);
+    }
+    createRecipesSelection(datas);
   }
 }
