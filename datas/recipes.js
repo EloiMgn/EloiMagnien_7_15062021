@@ -1288,7 +1288,7 @@ export const recipes = [
         quantity: 1
       },
       {
-        ingredient: 'Coulis de tomates',
+        ingredient: 'Coulis de tomate',
         quantity: 20,
         unit: 'cl'
       },

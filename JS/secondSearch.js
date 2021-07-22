@@ -183,6 +183,12 @@ export function filterRecipes () {
   const foundRecipes = searchResults.recipes;
   const filteredRecipes = [];
   const recipesTemps = [];
+  const testPass = {
+    ingredientsPass: false,
+    appliancesPass: false,
+    ustensilsPass: false,
+    allTestsPass: false
+  };
   if (selectedItems.length === 0) {
     recipes.forEach((recipe) => {
       foundRecipes.push(recipe);
@@ -194,16 +200,42 @@ export function filterRecipes () {
       foundRecipes.push(recipe);
     });
     reloadRecipeSelection(foundRecipes);
-  } else if (selectedItems.length !== 0) { // ===== Tri par recherche d'ingredients =====
+  } else if (selectedItems.length !== 0) {
     for (let i = 0; i < selectedItems.length; i++) {
       for (let j = 0; j < foundRecipes.length; j++) {
-        for (let h = 0; h < foundRecipes[j].ingredients.length; h++) {
-          if (foundRecipes[j].ingredients[h].ingredient === selectedItems[i].name) {
+        for (let k = 0; k < foundRecipes[j].ingredients.length; k++) {
+          if (foundRecipes[j].ingredients[k].ingredient.includes(selectedItems[i].name)) {
+            recipesTemps.push(foundRecipes[j]);
+            console.log(foundRecipes[j].ingredients[k].ingredient.includes(selectedItems[i].name));
+            testPass.ingredientsPass = true;
+          } else if (foundRecipes[j].ingredients[k].ingredient.includes(selectedItems[i].name) !== true) {
+            console.log('zut');
+          }
+        }
+        // ===== Tri par recherche d'appareils =====
+        if (foundRecipes[j].appliance.includes(selectedItems[i].name)) {
+          testPass.appliancesPass = true;
+          recipesTemps.push(foundRecipes[j]);
+        } // else {
+        //   testPass.appliancesPass = false;
+        // }
+        // ===== Tri par recherche d'ustensiles =====
+        for (let h = 0; h < foundRecipes[j].ustensils.length; h++) {
+          if (foundRecipes[j].ustensils[h].includes(selectedItems[i].name)) {
+            console.log('hello');
+            testPass.ustensilsPass = true;
             recipesTemps.push(foundRecipes[j]);
           }
         }
       }
     }
-    reloadRecipeSelection(recipesTemps);
+    const filteredRecipesTemps = [];
+    removeDuplicates(recipesTemps, filteredRecipesTemps);
+    reloadRecipeSelection(filteredRecipesTemps);
+    console.log(testPass);
   }
 }
+
+// ====================== TEST =======================
+
+// ======================      =======================
