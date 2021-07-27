@@ -122,3 +122,16 @@ export function closeList (listId) {
   options.style.display = 'none';
   button.classList.remove(`Search--${listId}`);
 }
+
+export function filterDropdown (myList, listId, myInput) {
+  const elements = [];
+  const filteredElements = [];
+  for (let i = 0; i < myList.length; i++) {
+    if (myList[i].toLowerCase().indexOf(`${myInput.value.toLowerCase()}`) !== -1) {
+      elements.push(myList[i]);
+    }
+  }
+  removeDuplicates(elements, filteredElements);
+  sortArray(filteredElements);
+  showList(filteredElements, listId);
+}

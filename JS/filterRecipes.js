@@ -19,7 +19,7 @@ export function filterRecipes () {
     recipes.forEach((recipe) => {
       foundRecipes.push(recipe);
     });
-    foundRecipes.shift();
+    // foundRecipes.shift();
     removeDuplicates(foundRecipes, filteredRecipes);
     resetArray(foundRecipes);
     filteredRecipes.forEach(recipe => {

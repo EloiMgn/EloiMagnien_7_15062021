@@ -1,6 +1,6 @@
-import { runIngredientSearch } from './secondSearchIngredients.js';
-import { runApplianceSearch } from './secondSearchAppliances.js';
-import { runUstensilSearch } from './secondSearchUstensils.js';
+import { showStartIngredientsList, runIngredientSearch } from './runIngredientSearch.js';
+import { showStartAppliancesList, runAppliancesSearch } from './runAppliancesSearch.js';
+import { runUstensilSearch } from './runUstensilsSearch.js';
 import { launchChipsReload, addChipToResults, reloadChips, resetInputValue, closeList } from './utils.js';
 import { filterRecipes } from './filterRecipes.js';
 
@@ -34,7 +34,9 @@ export function selectResult (listId) {
 
 export function runSecondSearch () {
   filterRecipes();
+  showStartIngredientsList();
   runIngredientSearch();
-  runApplianceSearch();
-  runUstensilSearch();
+  runAppliancesSearch();
+  showStartAppliancesList();
+  // runUstensilSearch();
 }
