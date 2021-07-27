@@ -1,12 +1,13 @@
 import { recipes } from '../datas/recipes.js';
-import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList, selectResult } from './secondSearch.js';
+import { secondSearchResults, searchResults, selectResult } from './secondSearch.js';
+import { resetArray, sortArray, removeDuplicates, showList, clearShowedList } from './utils.js';
 
 export function runUstensilSearch () {
   const ustensilsButton = document.getElementById('choice__ustensils');
-  const foundUstensils = secondSearchResults.foundUstensils;
-  const filteredUstensils = secondSearchResults.filteredUstensils;
-  const foundRecipes = secondSearchResults.foundRecipes;
-  const filteredRecipes = secondSearchResults.filteredRecipes;
+  const foundUstensils = [];
+  const filteredUstensils = [];
+  const foundRecipes = searchResults.recipes;
+  const filteredRecipes = [];
   // filterRecipes();
   if (ustensilsButton.value === '') {
     for (let i = 0; i < recipes.length; i++) {

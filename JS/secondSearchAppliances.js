@@ -1,12 +1,13 @@
 import { recipes } from '../datas/recipes.js';
-import { secondSearchResults, removeDuplicates, resetArray, sortArray, clearShowedList, showList, selectResult } from './secondSearch.js';
+import { secondSearchResults, searchResults, selectResult } from './secondSearch.js';
+import { resetArray, sortArray, removeDuplicates, showList, clearShowedList } from './utils.js';
 
 export function runApplianceSearch () {
   const appliancesButton = document.getElementById('choice__appliances');
-  const foundAppliances = secondSearchResults.foundAppliances;
-  const filteredAppliances = secondSearchResults.filteredAppliances;
-  const foundRecipes = secondSearchResults.foundRecipes;
-  const filteredRecipes = secondSearchResults.filteredRecipes;
+  const foundAppliances = [];
+  const filteredAppliances = [];
+  const foundRecipes = searchResults.recipes;
+  const filteredRecipes = [];
   // filterRecipes();
   if (appliancesButton.value === '') {
     for (let i = 0; i < recipes.length; i++) {
