@@ -133,6 +133,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .secondSearch__results{
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     &__select{
         border-radius: 5px;
         width: 107px;
@@ -150,6 +151,9 @@ input[type="search"]::-webkit-search-results-decoration {
         padding: 5px;
     }
 
+    .hidden {
+        display: none;
+    }
     .ingredients{
         background: $ingredientsColor;
     }

@@ -20,7 +20,7 @@ function createSelectionCard (datas) {
   datas.forEach((recipe) => {
     const recipeCard = document.createElement('div');
     recipeCard.classList.add('selection__card');
-    recipeCard.setAttribute('id', recipe.id);
+    recipeCard.setAttribute('id', `recipe__number__${recipe.id}`);
     recipesSelection.appendChild(recipeCard);
   });
 }
@@ -42,8 +42,8 @@ function createCardDescriptionTop (datas) {
     const recipeCardDescriptionTop = document.createElement('div');
     recipeCardDescriptionTop.classList.add('selection__card__top');
     card.appendChild(recipeCardDescriptionTop);
-    createRecipeTitle(card.id, recipeCardDescriptionTop, datas);
-    createRecipeTime(card.id, recipeCardDescriptionTop, datas);
+    createRecipeTitle(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionTop, datas);
+    createRecipeTime(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionTop, datas);
   });
 }
 
@@ -81,8 +81,8 @@ function createCardDescriptionBottom (datas) {
     const recipeCardDescriptionBottom = document.createElement('div');
     recipeCardDescriptionBottom.classList.add('selection__card__bottom');
     card.appendChild(recipeCardDescriptionBottom);
-    createRecipeIngredientsList(card.id, recipeCardDescriptionBottom, datas);
-    createRecipeDescription(card.id, recipeCardDescriptionBottom, datas);
+    createRecipeIngredientsList(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionBottom, datas);
+    createRecipeDescription(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionBottom, datas);
   });
 }
 

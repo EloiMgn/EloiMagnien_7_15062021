@@ -1,6 +1,6 @@
 import { showStartIngredientsList, runIngredientSearch } from './runIngredientSearch.js';
 import { showStartAppliancesList, runAppliancesSearch } from './runAppliancesSearch.js';
-import { runUstensilSearch } from './runUstensilsSearch.js';
+// import { runUstensilSearch } from './runUstensilsSearch.js';
 import { launchChipsReload, addChipToResults, reloadChips, resetInputValue, closeList } from './utils.js';
 import { filterRecipes } from './filterRecipes.js';
 

@@ -132,6 +132,7 @@ input[type=search]::-webkit-search-results-decoration {
 .secondSearch__results {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 .secondSearch__results__select {
   border-radius: 5px;
@@ -148,6 +149,9 @@ input[type=search]::-webkit-search-results-decoration {
   line-height: 17px;
   color: #FFFFFF;
   padding: 5px;
+}
+.secondSearch__results .hidden {
+  display: none;
 }
 .secondSearch__results .ingredients {
   background: #3282F7;

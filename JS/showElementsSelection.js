@@ -1,6 +1,5 @@
-// import { ingredientsArray } from "./ingredientsSearch";
 
-function openList (listId) {
+export function openList (listId) {
   const input = document.getElementById(`choice__${listId}`);
   const options = document.getElementById(`${listId}`);
   const button = document.getElementById(`Search--${listId}`);
@@ -11,7 +10,7 @@ function openList (listId) {
   });
 }
 
-function closeList (listId) {
+export function closeList (listId) {
   const arrow = document.getElementById(`${listId}Arrow`);
   const options = document.getElementById(`${listId}`);
   const button = document.getElementById(`Search--${listId}`);

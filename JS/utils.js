@@ -1,6 +1,7 @@
 
-import { searchResults } from './secondSearch.js';
-import { filterRecipes } from './filterRecipes.js';
+// import { searchResults } from './secondSearch.js';
+// import { filterRecipes } from './filterRecipes.js';
+// import { STATE } from './state.js';
 
 export function resetArray (array) {
   array.splice(0, array.length);
@@ -19,7 +20,7 @@ export function showList (array, listId) {
   array.forEach(element => {
     const newElement = document.createElement('a');
     newElement.textContent = element;
-    newElement.classList.add('option' + '__' + `${listId}`);
+    newElement.classList.add('option' + '__' + `${listId}`, 'option');
     list.appendChild(newElement);
   });
 }
@@ -37,7 +38,6 @@ export function launchChipsReload () {
       removeClassName(item);
       reloadChips();
       launchChipsReload();
-      filterRecipes();
     });
   }
 }
@@ -90,27 +90,6 @@ function addChipsToList () {
   });
 }
 
-function createChips (clickedElement, listId, elementId, resultsContainer) {
-  const newElement = document.createElement('div');
-  newElement.classList.add('secondSearch__results' + '__' + 'select');
-  newElement.classList.add(`${listId}`);
-  newElement.classList.add(`${clickedElement.replaceAll(' ', '_')}`);
-  newElement.setAttribute('id', `${elementId}`);
-  resultsContainer.appendChild(newElement);
-
-  const newText = document.createElement('p');
-  newText.classList.add('secondSearch__results' + '__' + 'text');
-  newText.classList.add(`${listId}`);
-  newText.textContent = clickedElement;
-  newElement.appendChild(newText);
-
-  const newCross = document.createElement('i');
-  newCross.classList.add('far');
-  newCross.classList.add('fa-times-circle');
-  newCross.classList.add('deleteSelectedResult');
-  newElement.appendChild(newCross);
-}
-
 export function resetInputValue (inputId) {
   const input = document.getElementById(`choice__${inputId}`);
   input.value = '';
@@ -134,4 +113,9 @@ export function filterDropdown (myList, listId, myInput) {
   removeDuplicates(elements, filteredElements);
   sortArray(filteredElements);
   showList(filteredElements, listId);
+  console.log(myList);
+}
+
+export function firstLetterMaj (myString) {
+  return (myString + '').charAt(0).toUpperCase() + myString.substr(1);
 }
