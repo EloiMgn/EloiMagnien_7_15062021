@@ -1,5 +1,5 @@
 import { STATE, addDisplayToState } from './state.js';
-import { openList, closeList } from './showElementsSelection.js';
+import { onOpenList, onCloseList } from './showElementsSelection.js';
 import { createDropdownIngredients, createDropdownAppliances, createDropdownUstensils } from './createDropdown.js';
 import { createRecipesSelection } from './recipesSelection.js';
 import { displayFilterRecipes } from './displayFilterRecipes.js';
@@ -10,13 +10,13 @@ import { selectChip, removeChip } from './displayChips.js';
 
 export function startPage () {
   addDisplayToState();
-  openList('ingredients');
-  openList('appliances');
-  openList('ustensils');
+  onOpenList('ingredients');
+  onOpenList('appliances');
+  onOpenList('ustensils');
 
-  closeList('ingredients');
-  closeList('appliances');
-  closeList('ustensils');
+  onCloseList('ingredients');
+  onCloseList('appliances');
+  onCloseList('ustensils');
   createDropdownIngredients();
   createDropdownAppliances();
   createDropdownUstensils();

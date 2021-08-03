@@ -1,5 +1,4 @@
 
-import { selectedChips } from './state.js';
 // import { filterRecipes } from './filterRecipes.js';
 import { selectChip } from './displayChips.js';
 

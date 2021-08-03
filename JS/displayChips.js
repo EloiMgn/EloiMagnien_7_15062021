@@ -1,5 +1,6 @@
 import { clearInputValue } from './utils.js';
-import { selectedChips } from './state.js';
+import { STATE } from './state.js';
+import { displayFilterRecipes } from './displayFilterRecipes.js';
 
 function createChips (clickedElement, listId, resultsContainer, index) {
   // == creéation du container de la chip ===
@@ -43,11 +44,19 @@ export function selectChip (inputId) {
         if (chipsList[i].classList.contains(option.innerHTML.replaceAll(' ', '_'))) {
           chipsList[i].classList.remove('hidden');
           option.classList.add('selected');
-          selectedChips.push(chipsList[i]);
         }
       }
       clearInputValue(inputId);
-      console.log(selectedChips);
+      // chercher les recette qui ont de chipList[i] dans les recette en display true
+      STATE.recipes.forEach(recipe => {
+        if (recipe.display === true) {
+          const position = recipe.ingredients.map(e => e.ingredient).indexOf(option.innerHTML);
+          if (position < 0) {
+            recipe.display = false;
+          }
+        }
+      });
+      displayFilterRecipes();
     });
   });
 }

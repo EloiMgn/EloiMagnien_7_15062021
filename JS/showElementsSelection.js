@@ -1,5 +1,5 @@
 
-export function openList (listId) {
+export function onOpenList (listId) {
   const input = document.getElementById(`choice__${listId}`);
   const options = document.getElementById(`${listId}`);
   const button = document.getElementById(`Search--${listId}`);
@@ -10,7 +10,7 @@ export function openList (listId) {
   });
 }
 
-export function closeList (listId) {
+export function onCloseList (listId) {
   const arrow = document.getElementById(`${listId}Arrow`);
   const options = document.getElementById(`${listId}`);
   const button = document.getElementById(`Search--${listId}`);
@@ -21,10 +21,10 @@ export function closeList (listId) {
   });
 }
 
-openList('ingredients');
-openList('appliances');
-openList('ustensils');
+// openList('ingredients');
+// openList('appliances');
+// openList('ustensils');
 
-closeList('ingredients');
-closeList('appliances');
-closeList('ustensils');
+// closeList('ingredients');
+// closeList('appliances');
+// closeList('ustensils');

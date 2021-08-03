@@ -7,5 +7,3 @@ export function addDisplayToState () {
     recipe.display = true;
   });
 }
-
-export const selectedChips = [];
