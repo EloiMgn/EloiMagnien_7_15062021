@@ -1,23 +1,24 @@
 import { STATE } from './state.js';
-import { sortArray, removeDuplicates, showList, firstLetterMaj } from './utils.js';
+import { sortArray, removeDuplicates, showList, firstLetterMaj, sortDropdown } from './utils.js';
 import { displayChips } from './displayChips.js';
 
 // == ajout de la liste d'option dans le dropdown des ingredients ===
 export function createDropdownIngredients () {
+  const dropdownIngredients = [];
+  const dropdownIngredientsTemp = [];
   const ingredientsButton = document.getElementById('choice__ingredients');
-  const dropdownList = [];
-  const dropdownListTemp = [];
   if (ingredientsButton.value === '') {
-    for (let i = 0; i < STATE.length; i++) {
-      for (let j = 0; j < STATE[i].ingredients.length; j++) {
-        dropdownListTemp.push(firstLetterMaj(STATE[i].ingredients[j].ingredient));
+    for (let i = 0; i < STATE.recipes.length; i++) {
+      for (let j = 0; j < STATE.recipes[i].ingredients.length; j++) {
+        dropdownIngredientsTemp.push(firstLetterMaj(STATE.recipes[i].ingredients[j].ingredient));
       }
     }
+    removeDuplicates(dropdownIngredientsTemp, dropdownIngredients);
+    sortArray(dropdownIngredients);
+    showList(dropdownIngredients, 'ingredients');
+    displayChips(dropdownIngredients, 'ingredients');
   }
-  removeDuplicates(dropdownListTemp, dropdownList);
-  sortArray(dropdownList);
-  showList(dropdownList, 'ingredients');
-  displayChips(dropdownList, 'ingredients');
+  sortDropdown('ingredients', dropdownIngredients, ingredientsButton);
 }
 
 // === ajout de la liste d'options de la dropdown list des appareils ===
@@ -26,14 +27,15 @@ export function createDropdownAppliances () {
   const dropdownAppliancesTemp = [];
   const appliancesButton = document.getElementById('choice__appliances');
   if (appliancesButton.value === '') {
-    for (let i = 0; i < STATE.length; i++) {
-      dropdownAppliancesTemp.push(firstLetterMaj(STATE[i].appliance));
+    for (let i = 0; i < STATE.recipes.length; i++) {
+      dropdownAppliancesTemp.push(firstLetterMaj(STATE.recipes[i].appliance));
     }
+    removeDuplicates(dropdownAppliancesTemp, dropdownAppliances);
+    sortArray(dropdownAppliances);
+    showList(dropdownAppliances, 'appliances');
+    displayChips(dropdownAppliances, 'appliances');
   }
-  removeDuplicates(dropdownAppliancesTemp, dropdownAppliances);
-  sortArray(dropdownAppliances);
-  showList(dropdownAppliances, 'appliances');
-  displayChips(dropdownAppliances, 'appliances');
+  sortDropdown('appliances', dropdownAppliances, appliancesButton);
 }
 
 // === ajout de la liste d'options de la dropdown list des ustensils ===
@@ -42,14 +44,15 @@ export function createDropdownUstensils () {
   const dropdownUstensilsTemp = [];
   const ustensilsButton = document.getElementById('choice__ustensils');
   if (ustensilsButton.value === '') {
-    for (let i = 0; i < STATE.length; i++) {
-      for (let j = 0; j < STATE[i].ustensils.length; j++) {
-        dropdownUstensilsTemp.push(firstLetterMaj(STATE[i].ustensils[j]));
+    for (let i = 0; i < STATE.recipes.length; i++) {
+      for (let j = 0; j < STATE.recipes[i].ustensils.length; j++) {
+        dropdownUstensilsTemp.push(firstLetterMaj(STATE.recipes[i].ustensils[j]));
       }
     }
+    removeDuplicates(dropdownUstensilsTemp, dropdownUstensils);
+    sortArray(dropdownUstensils);
+    showList(dropdownUstensils, 'ustensils');
+    displayChips(dropdownUstensils, 'ustensils');
   }
-  removeDuplicates(dropdownUstensilsTemp, dropdownUstensils);
-  sortArray(dropdownUstensils);
-  showList(dropdownUstensils, 'ustensils');
-  displayChips(dropdownUstensils, 'ustensils');
+  sortDropdown('ustensils', dropdownUstensils, ustensilsButton);
 }

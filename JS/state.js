@@ -1,9 +1,11 @@
 import { recipes } from '../datas/recipes.js';
 
-export const STATE = recipes;
+export const STATE = { recipes };
 
 export function addDisplayToState () {
-  STATE.forEach(recipe => {
+  STATE.recipes.forEach(recipe => {
     recipe.display = true;
   });
 }
+
+export const selectedChips = [];

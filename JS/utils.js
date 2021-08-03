@@ -1,7 +1,7 @@
 
-// import { searchResults } from './secondSearch.js';
+import { selectedChips } from './state.js';
 // import { filterRecipes } from './filterRecipes.js';
-// import { STATE } from './state.js';
+import { selectChip } from './displayChips.js';
 
 export function resetArray (array) {
   array.splice(0, array.length);
@@ -21,6 +21,7 @@ export function showList (array, listId) {
     const newElement = document.createElement('a');
     newElement.textContent = element;
     newElement.classList.add('option' + '__' + `${listId}`, 'option');
+    newElement.setAttribute('id', `${listId}__${array.indexOf(element)}`);
     list.appendChild(newElement);
   });
 }
@@ -113,7 +114,20 @@ export function filterDropdown (myList, listId, myInput) {
   removeDuplicates(elements, filteredElements);
   sortArray(filteredElements);
   showList(filteredElements, listId);
-  console.log(myList);
+}
+
+export function sortDropdown (inputId, dropdownList, myButton) {
+  const input = document.getElementById(`choice__${inputId}`);
+  input.addEventListener('input', () => {
+    clearShowedList(`${inputId}`);
+    filterDropdown(dropdownList, `${inputId}`, myButton);
+    selectChip(inputId);
+  });
+}
+
+export function clearInputValue (inputId) {
+  const input = document.getElementById(`choice__${inputId}`);
+  input.value = '';
 }
 
 export function firstLetterMaj (myString) {

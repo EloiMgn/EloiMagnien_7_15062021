@@ -1,10 +1,14 @@
-function createChips (clickedElement, listId, resultsContainer) {
+import { clearInputValue } from './utils.js';
+import { selectedChips } from './state.js';
+
+function createChips (clickedElement, listId, resultsContainer, index) {
   // == creéation du container de la chip ===
   const newElement = document.createElement('div');
   newElement.classList.add('secondSearch__results' + '__' + 'select');
   newElement.classList.add(`${listId}`);
   newElement.classList.add(`${clickedElement.replaceAll(' ', '_')}`);
   newElement.classList.add('hidden'); // ajout d'une classe hidden pour un display:none par défaut
+  newElement.setAttribute('id', `${listId}__${index}`); // ajout d'un id correspondant à l'id de l'élement du dropdown
 
   resultsContainer.appendChild(newElement);
 
@@ -25,11 +29,11 @@ function createChips (clickedElement, listId, resultsContainer) {
 export function displayChips (dropdownList, listId) {
   const resultsContainer = document.getElementById('secondSearch__results');
   dropdownList.forEach(option => {
-    createChips(option, listId, resultsContainer);
+    createChips(option, listId, resultsContainer, dropdownList.indexOf(option));
   });
 }
 
-export function selectChip () {
+export function selectChip (inputId) {
   const chipsList = document.querySelectorAll('.secondSearch__results__select');
   const dropdownList = document.querySelectorAll('.option');
 
@@ -39,8 +43,11 @@ export function selectChip () {
         if (chipsList[i].classList.contains(option.innerHTML.replaceAll(' ', '_'))) {
           chipsList[i].classList.remove('hidden');
           option.classList.add('selected');
+          selectedChips.push(chipsList[i]);
         }
       }
+      clearInputValue(inputId);
+      console.log(selectedChips);
     });
   });
 }

@@ -4,6 +4,7 @@ import { createDropdownIngredients, createDropdownAppliances, createDropdownUste
 import { createRecipesSelection } from './recipesSelection.js';
 import { displayFilterRecipes } from './displayFilterRecipes.js';
 import { selectChip, removeChip } from './displayChips.js';
+// import { sortDropdown } from './filterDropdown.js';
 
 // import { recipes } from '../datas/recipes.js';
 
@@ -23,6 +24,6 @@ export function startPage () {
   removeChip();
 }
 export function refreshPage () {
-  createRecipesSelection(STATE);
+  createRecipesSelection(STATE.recipes);
   displayFilterRecipes();
 }
