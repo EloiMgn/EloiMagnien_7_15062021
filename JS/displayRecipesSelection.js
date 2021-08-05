@@ -1,13 +1,13 @@
-export function createRecipesSelection (datas) {
-  // deleteRecipeSelection();
-  createSelectionContainer();
-  createSelectionCard(datas);
-  createCardImg();
+export function displayRecipesSelection (datas) {
+  createRecipeSection();
+  createRecipeCard(datas);
+  displayRecipeImg();
   createCardDescriptionTop(datas);
   createCardDescriptionBottom(datas);
 }
 
-function createSelectionContainer () {
+// == Création de la section recettes ===
+function createRecipeSection () {
   const body = document.getElementById('body');
   const recipesSelection = document.createElement('section');
   recipesSelection.setAttribute('id', 'recipes__selection');
@@ -15,7 +15,8 @@ function createSelectionContainer () {
   body.appendChild(recipesSelection);
 }
 
-function createSelectionCard (datas) {
+// == Création de la carte recette ====
+function createRecipeCard (datas) {
   const recipesSelection = document.getElementById('recipes__selection');
   datas.forEach((recipe) => {
     const recipeCard = document.createElement('div');
@@ -25,7 +26,8 @@ function createSelectionCard (datas) {
   });
 }
 
-function createCardImg () {
+// == Insertion de l'image de la recette ===
+function displayRecipeImg () {
   const recipesSelectionCards = document.querySelectorAll('.selection__card');
   recipesSelectionCards.forEach((card) => {
     const recipeCardImg = document.createElement('img');
@@ -36,17 +38,7 @@ function createCardImg () {
   });
 }
 
-function createCardDescriptionTop (datas) {
-  const recipesSelectionCards = document.querySelectorAll('.selection__card');
-  recipesSelectionCards.forEach((card) => {
-    const recipeCardDescriptionTop = document.createElement('div');
-    recipeCardDescriptionTop.classList.add('selection__card__top');
-    card.appendChild(recipeCardDescriptionTop);
-    createRecipeTitle(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionTop, datas);
-    createRecipeTime(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionTop, datas);
-  });
-}
-
+// == Création du titre de la recette ===
 function createRecipeTitle (id, descriptionTop, datas) {
   for (let i = 0; i < datas.length; i++) {
     if (datas[i].id === parseInt(id)) {
@@ -58,6 +50,7 @@ function createRecipeTitle (id, descriptionTop, datas) {
   }
 }
 
+// == Création du temps de prépâration de la rectte ===
 function createRecipeTime (id, descriptionTop, datas) {
   for (let i = 0; i < datas.length; i++) {
     if (datas[i].id === parseInt(id)) {
@@ -75,17 +68,19 @@ function createRecipeTime (id, descriptionTop, datas) {
   }
 }
 
-function createCardDescriptionBottom (datas) {
+// == Création de la description "haute" de la recette (titre + temps de préparation) ===
+function createCardDescriptionTop (datas) {
   const recipesSelectionCards = document.querySelectorAll('.selection__card');
   recipesSelectionCards.forEach((card) => {
-    const recipeCardDescriptionBottom = document.createElement('div');
-    recipeCardDescriptionBottom.classList.add('selection__card__bottom');
-    card.appendChild(recipeCardDescriptionBottom);
-    createRecipeIngredientsList(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionBottom, datas);
-    createRecipeDescription(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionBottom, datas);
+    const recipeCardDescriptionTop = document.createElement('div');
+    recipeCardDescriptionTop.classList.add('selection__card__top');
+    card.appendChild(recipeCardDescriptionTop);
+    createRecipeTitle(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionTop, datas);
+    createRecipeTime(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionTop, datas);
   });
 }
 
+// == Insertion de la liste d'ingrédient de la recette ====
 function createRecipeIngredientsList (id, descriptionBottom, datas) {
   for (let i = 0; i < datas.length; i++) {
     if (datas[i].id === parseInt(id)) {
@@ -131,6 +126,7 @@ function createRecipeIngredientsList (id, descriptionBottom, datas) {
   }
 }
 
+// === Création de la description de la recette ====
 function createRecipeDescription (id, descriptionBottom, datas) {
   for (let i = 0; i < datas.length; i++) {
     if (datas[i].id === parseInt(id)) {
@@ -142,12 +138,14 @@ function createRecipeDescription (id, descriptionBottom, datas) {
   }
 }
 
-export function reloadRecipeSelection (datas) {
-  const myNode = document.getElementById('recipes__selection');
-  if (myNode) {
-    while (myNode.firstChild) {
-      myNode.removeChild(myNode.lastChild);
-    }
-    createRecipesSelection(datas);
-  }
+// == Insertion de la liste d'ingrédient et de la description dans la description "basse"
+function createCardDescriptionBottom (datas) {
+  const recipesSelectionCards = document.querySelectorAll('.selection__card');
+  recipesSelectionCards.forEach((card) => {
+    const recipeCardDescriptionBottom = document.createElement('div');
+    recipeCardDescriptionBottom.classList.add('selection__card__bottom');
+    card.appendChild(recipeCardDescriptionBottom);
+    createRecipeIngredientsList(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionBottom, datas);
+    createRecipeDescription(card.id.replaceAll('recipe__number__', ''), recipeCardDescriptionBottom, datas);
+  });
 }

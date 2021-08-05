@@ -1,9 +1,9 @@
 import { recipes } from '../datas/recipes.js';
 
-export const STATE = { recipes };
+export const STATE = recipes;
 
 export function addDisplayToState () {
-  STATE.recipes.forEach(recipe => {
+  STATE.forEach(recipe => {
     recipe.display = true;
   });
 }
