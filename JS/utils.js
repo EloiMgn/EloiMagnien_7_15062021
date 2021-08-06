@@ -54,6 +54,13 @@ export function clearShowedList (listId) {
   }
 }
 
+export function resetInputValue () {
+  const inputs = document.querySelectorAll('input');
+  inputs.forEach(input => {
+    input.value = '';
+  });
+}
+
 // ==================================================================================================================== //
 // ================================↓↓↓↓↓ Autres fonctions non utilisées ↓↓↓↓↓========================================== //
 // ==================================================================================================================== //
@@ -118,11 +125,6 @@ export function clearShowedList (listId) {
 //   });
 // }
 
-// export function resetInputValue (inputId) {
-//   const input = document.getElementById(`choice__${inputId}`);
-//   input.value = '';
-// }
-
 // export function closeList (listId) {
 //   const options = document.getElementById(`${listId}`);
 //   const button = document.getElementById(`Search--${listId}`);
@@ -137,9 +139,4 @@ export function clearShowedList (listId) {
 //     filterDropdown(dropdownList, `${inputId}`, myButton);
 //     selectChip(inputId);
 //   });
-// }
-
-// export function clearInputValue (inputId) {
-//   const input = document.getElementById(`choice__${inputId}`);
-//   input.value = '';
 // }

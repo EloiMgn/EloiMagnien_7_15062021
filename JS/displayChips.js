@@ -1,7 +1,7 @@
-// import { clearInputValue } from './utils.js';
-import { STATE } from './state.js';
+
 import { dropdownUstensils, dropdownAppliances, dropdownIngredients } from './displayDropdownList.js';
-import { displayFilterRecipes } from './displayFilterRecipes.js';
+import { resetInputValue } from './utils.js';
+import { onClicFilterRecipes, onCloseFilterRecipes } from './filterRecipes.js';
 // import { removeDuplicates, sortArray } from './utils.js';
 
 export const chipsList = [];
@@ -51,7 +51,7 @@ function createChips (clickedElement, listId, resultsContainer, index) {
   chipsList.push(newElement);
 }
 
-export function selectChip (listId) {
+export function selectChip () {
   const dropdownList = document.querySelectorAll('.option');
   dropdownList.forEach(dropdownElement => {
     dropdownElement.addEventListener('click', () => {
@@ -59,49 +59,40 @@ export function selectChip (listId) {
         if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML) {
           chip.classList.remove('hidden');
           chip.classList.add('selectedChip');
+          selectedElements.push(chip);
           dropdownElement.classList.add('selected');
-          console.log(dropdownElement);
         }
       });
-      // clearInputValue(inputId);
-      filterRecipes(dropdownElement);
+      resetInputValue();
+      onClicFilterRecipes(dropdownElement);
     });
   });
 }
 
-function filterRecipes (option) {
-  // chercher les recette qui ont de chipList[i] dans les recette en display true
-  if (option.classList.contains('option__ingredients')) {
-    STATE.forEach(recipe => {
-      if (recipe.display === true) {
-        const position = recipe.ingredients.map(e => e.ingredient).indexOf(option.innerHTML);
-        if (position < 0) {
-          recipe.display = false;
+export function removeChip () {
+  const chipsListClose = document.querySelectorAll('.deleteSelectedResult');
+  const selectedList = document.querySelectorAll('.option');
+
+  chipsListClose.forEach(cross => {
+    cross.addEventListener('click', () => {
+      cross.parentElement.classList.add('hidden'); // === suppression de la chip (passage en display:none) au clic sur la croix
+      // réapparition de l'option dans le dropdown (suppression de la class selected)
+      selectedList.forEach(option => {
+        if (cross.previousElementSibling.innerHTML.toLowerCase() === option.innerHTML.toLowerCase()) {
+          option.classList.remove('selected');
+        }
+      });
+      if (selectedElements.length > 0) {
+        for (let i = 0; i < selectedElements.length; i++) {
+          if (selectedElements[i].querySelector('p').innerHTML.toLowerCase() === cross.previousElementSibling.innerHTML.toLowerCase()) {
+            selectedElements.splice(i, 1);
+          }
         }
       }
+      onCloseFilterRecipes();
     });
-  } else if (option.classList.contains('option__appliances')) {
-    STATE.forEach(recipe => {
-      if (recipe.display === true) {
-        const position = recipe.appliance.indexOf(option.innerHTML);
-        if (position < 0) {
-          recipe.display = false;
-        }
-      }
-    });
-  } else if (option.classList.contains('option__ustensils')) {
-    STATE.forEach(recipe => {
-      if (recipe.display === true) {
-        const position = recipe.ustensils.map(e => e.ustensils).indexOf(option.innerHTML);
-        if (position < 0) {
-          recipe.display = false;
-        }
-        console.log(position);
-      }
-    });
-  }
-  displayFilterRecipes(STATE);
-};
+  });
+}
 
 // export function selectChip (inputId) {
 //   const chipsList = document.querySelectorAll('.secondSearch__results__select');
@@ -129,20 +120,3 @@ function filterRecipes (option) {
 //     });
 //   });
 // }
-
-export function removeChip () {
-  const chipsListClose = document.querySelectorAll('.deleteSelectedResult');
-  const selectedList = document.querySelectorAll('.option');
-
-  chipsListClose.forEach(cross => {
-    cross.addEventListener('click', () => {
-      cross.parentElement.classList.add('hidden'); // === suppression de la chip (passage en display:none)
-      // réapparition de l'option dans le dropdown (suppression de la class selected)
-      for (let i = 0; i < selectedList.length; i++) {
-        if (cross.parentElement.classList.contains(selectedList[i].innerHTML.replaceAll(' ', '_'))) {
-          selectedList[i].classList.remove('selected');
-        }
-      }
-    });
-  });
-}
