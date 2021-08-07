@@ -4,6 +4,7 @@ import { onOpenDropdown, onCloseDropdown } from './showElementsSelection.js';
 import { displayDropdownLists } from './displayDropdownList.js';
 import { runDropdownSort } from './sortDropdownList.js';
 import { displayAllChips } from './displayChips.js';
+import { onInputMainSearch } from './runMainSearch.js';
 // import { createRecipesSelection } from './recipesSelection.js';
 // import { displayFilterRecipes } from './displayFilterRecipes.js';
 // import { selectChip, removeChip } from './displayChips.js';
@@ -11,16 +12,16 @@ import { displayAllChips } from './displayChips.js';
 
 // // import { recipes } from '../datas/recipes.js';
 
-export function startPage () {
+export function refreshPage () {
   addDisplayToState();
   displayRecipesSelection(STATE);
   onOpenDropdown();
   onCloseDropdown();
   displayDropdownLists(STATE);
-  runDropdownSort();
   displayAllChips();
-  // selectChip();
-  // removeChip();
+  runDropdownSort();
+  onInputMainSearch();
+// removeChip();
 }
 // export function refreshPage () {
 //   createRecipesSelection(STATE.recipes);

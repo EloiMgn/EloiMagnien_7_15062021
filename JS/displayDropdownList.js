@@ -16,11 +16,13 @@ function createDropdownIngredients (datas) {
   const dropdownIngredientsTemp = [];
   const ingredientsButton = document.getElementById('choice__ingredients');
   if (ingredientsButton.value === '') {
-    for (let i = 0; i < datas.length; i++) {
-      for (let j = 0; j < datas[i].ingredients.length; j++) {
-        dropdownIngredientsTemp.push(firstLetterMaj(datas[i].ingredients[j].ingredient));
+    datas.forEach(recipe => {
+      if (recipe.display === true) {
+        for (let i = 0; i < recipe.ingredients.length; i++) {
+          dropdownIngredientsTemp.push(firstLetterMaj(recipe.ingredients[i].ingredient));
+        }
       }
-    }
+    });
     removeDuplicates(dropdownIngredientsTemp, dropdownIngredients);
     sortArray(dropdownIngredients);
     clearShowedList('ingredients');
@@ -33,9 +35,11 @@ function createDropdownAppliances (datas) {
   const dropdownAppliancesTemp = [];
   const appliancesButton = document.getElementById('choice__appliances');
   if (appliancesButton.value === '') {
-    for (let i = 0; i < datas.length; i++) {
-      dropdownAppliancesTemp.push(firstLetterMaj(datas[i].appliance));
-    }
+    datas.forEach(recipe => {
+      if (recipe.display === true) {
+        dropdownAppliancesTemp.push(firstLetterMaj(recipe.appliance));
+      }
+    });
     removeDuplicates(dropdownAppliancesTemp, dropdownAppliances);
     sortArray(dropdownAppliances);
     clearShowedList('appliances');
@@ -48,15 +52,16 @@ function createDropdownUstensils (datas) {
   const dropdownUstensilsTemp = [];
   const ustensilsButton = document.getElementById('choice__ustensils');
   if (ustensilsButton.value === '') {
-    for (let i = 0; i < datas.length; i++) {
-      for (let j = 0; j < datas[i].ustensils.length; j++) {
-        dropdownUstensilsTemp.push(firstLetterMaj(datas[i].ustensils[j]));
+    datas.forEach(recipe => {
+      if (recipe.display === true) {
+        recipe.ustensilsList.ustensils.forEach(ustensil => {
+          dropdownUstensilsTemp.push(firstLetterMaj(ustensil));
+        });
       }
-    }
+    });
     removeDuplicates(dropdownUstensilsTemp, dropdownUstensils);
     sortArray(dropdownUstensils);
     clearShowedList('ustensils');
-
     showList(dropdownUstensils, 'ustensils');
   }
 }

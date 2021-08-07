@@ -2,6 +2,8 @@
 import { dropdownUstensils, dropdownAppliances, dropdownIngredients } from './displayDropdownList.js';
 import { resetInputValue } from './utils.js';
 import { onClicFilterRecipes, onCloseFilterRecipes } from './filterRecipes.js';
+// import { updateDropdownIngredient } from './sortDropdownList.js';
+// import { STATE } from './state.js';
 // import { removeDuplicates, sortArray } from './utils.js';
 
 export const chipsList = [];
@@ -56,7 +58,7 @@ export function selectChip () {
   dropdownList.forEach(dropdownElement => {
     dropdownElement.addEventListener('click', () => {
       chipsList.forEach(chip => {
-        if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML) {
+        if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(dropdownElement.classList[0].replaceAll('option__', ''))) {
           chip.classList.remove('hidden');
           chip.classList.add('selectedChip');
           selectedElements.push(chip);
@@ -65,6 +67,7 @@ export function selectChip () {
       });
       resetInputValue();
       onClicFilterRecipes(dropdownElement);
+      // updateDropdownIngredient(STATE);
     });
   });
 }

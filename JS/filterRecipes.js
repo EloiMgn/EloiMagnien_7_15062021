@@ -25,25 +25,33 @@ export function onClicFilterRecipes (option) {
   } else if (option.classList.contains('option__ustensils')) {
     STATE.forEach(recipe => {
       if (recipe.display === true) {
-        const position = recipe.ustensils.map(e => e.ustensils).indexOf(option.innerHTML);
-        if (position < 0) {
+        for (let i = 0; i < recipe.ustensilsList.ustensils.length; i++) {
+          const positionUstensil = recipe.ustensilsList.ustensils[i].indexOf(option.innerHTML.toLowerCase());
+          if (positionUstensil >= 0) {
+            recipe.ustensilsList.found = true;
+            break;
+          } else if (positionUstensil < 0) {
+            recipe.ustensilsList.found = false;
+          }
+        }
+        if (recipe.ustensilsList.found === false) {
           recipe.display = false;
         }
       }
     });
   }
   displayFilterRecipes(STATE);
+  console.log(STATE);
 };
 
 export function onCloseFilterRecipes () {
-  console.log(selectedElements.length);
   if (selectedElements.length > 0) {
     selectedElements.forEach(chip => {
       STATE.forEach(recipe => {
+        // const positionUstensil = recipe.ustensils.toString
         if (recipe.display === false) {
           const positionIngredient = recipe.ingredients.map(e => e.ingredient).indexOf(chip.querySelector('p').innerHTML);
           const positionAppliance = recipe.appliance.indexOf(chip.querySelector('p').innerHTML);
-
           if (positionIngredient !== -1 || positionAppliance !== -1) {
             recipe.display = true;
           }
@@ -55,6 +63,23 @@ export function onCloseFilterRecipes () {
       recipe.display = true;
     });
   }
-  console.log(STATE);
   displayFilterRecipes(STATE);
+}
+
+export function filterRecipesByMainSearch (option) {
+  if (option.length >= 3) {
+    STATE.forEach(recipe => {
+      if (recipe.display === true) {
+        const positionIngredient = recipe.ingredients.map(e => e.ingredient.toLowerCase()).indexOf(option.toLowerCase());
+        console.log(option);
+        const positionAppliance = recipe.appliance.toLowerCase().indexOf(option.toLowerCase());
+        if (positionIngredient < 0 && positionAppliance < 0) {
+          recipe.display = false;
+        }
+      }
+    });
+    displayFilterRecipes(STATE);
+  } else if (option.length < 3) {
+    onCloseFilterRecipes();
+  }
 }
