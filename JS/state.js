@@ -11,5 +11,4 @@ export function addDisplayToState () {
     };
     delete recipe.ustensils;
   });
-  console.log(STATE);
 }

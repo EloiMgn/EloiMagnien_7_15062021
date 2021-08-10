@@ -41,7 +41,6 @@ export function onClicFilterRecipes (option) {
     });
   }
   displayFilterRecipes(STATE);
-  console.log(STATE);
 };
 
 export function onCloseFilterRecipes () {
@@ -71,9 +70,9 @@ export function filterRecipesByMainSearch (option) {
     STATE.forEach(recipe => {
       if (recipe.display === true) {
         const positionIngredient = recipe.ingredients.map(e => e.ingredient.toLowerCase()).indexOf(option.toLowerCase());
-        console.log(option);
-        const positionAppliance = recipe.appliance.toLowerCase().indexOf(option.toLowerCase());
-        if (positionIngredient < 0 && positionAppliance < 0) {
+        const positionTitle = recipe.name.toLowerCase().indexOf(option.toLowerCase());
+        const positionDescription = recipe.description.toLowerCase().indexOf(option.toLowerCase());
+        if (positionIngredient < 0 && positionTitle < 0 && positionDescription < 0) {
           recipe.display = false;
         }
       }

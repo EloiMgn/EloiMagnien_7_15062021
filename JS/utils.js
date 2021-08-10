@@ -61,6 +61,13 @@ export function resetInputValue () {
   });
 }
 
+export function clearContainer (containerId) {
+  const myNode = document.getElementById(`${containerId}`);
+  while (myNode.firstChild) {
+    myNode.removeChild(myNode.lastChild);
+  }
+}
+
 // ==================================================================================================================== //
 // ================================↓↓↓↓↓ Autres fonctions non utilisées ↓↓↓↓↓========================================== //
 // ==================================================================================================================== //
