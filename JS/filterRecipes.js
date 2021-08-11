@@ -1,5 +1,6 @@
 import { selectedElements } from './displayChips.js';
 import { displayFilterRecipes } from './displayFilterRecipes.js';
+import { displayErrorMessage } from './showErrorpage.js';
 import { STATE } from './state.js';
 
 export function onClicFilterRecipes (option) {
@@ -41,6 +42,7 @@ export function onClicFilterRecipes (option) {
     });
   }
   displayFilterRecipes(STATE);
+  displayErrorMessage();
 };
 
 export function onCloseFilterRecipes () {
@@ -63,6 +65,7 @@ export function onCloseFilterRecipes () {
     });
   }
   displayFilterRecipes(STATE);
+  displayErrorMessage();
 }
 
 export function filterRecipesByMainSearch (option) {
@@ -78,6 +81,7 @@ export function filterRecipesByMainSearch (option) {
       }
     });
     displayFilterRecipes(STATE);
+    displayErrorMessage();
   } else if (option.length < 3) {
     onCloseFilterRecipes();
   }

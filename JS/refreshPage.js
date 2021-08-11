@@ -22,7 +22,6 @@ export function refreshPage () {
   displayAllChips();
   runDropdownSort();
   onInputMainSearch();
-// removeChip();
 }
 // export function refreshPage () {
 //   createRecipesSelection(STATE.recipes);
