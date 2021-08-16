@@ -25,20 +25,26 @@ export function createDropdownElements () {
   sortArray(dropdownElements);
 }
 
-// import { displayFilterRecipes } from './displayFilterRecipes.js';
+function runObserver (dropdown) {
+  const observer = new MutationObserver(selectChip);
+  observer.observe(dropdown, { childList: true });
+}
+
+// === fonction de sélection d'une option et de suppression d'une option ===
+export function runChipsSelection () {
+  const ingredientsDropdown = document.querySelector('#ingredients__dropdown');
+  const appliancesDropdown = document.querySelector('#appliances__dropdown');
+  const ustensilsDropdown = document.querySelector('#ustensils__dropdown');
+  runObserver(ingredientsDropdown);
+  runObserver(appliancesDropdown);
+  runObserver(ustensilsDropdown);
+  removeChip();
+}
 // === Création de toutes les chips en display:none par défaut
 export function displayAllChips () {
-  const ingredientsButton = document.getElementById('choice__ingredients');
-  const appliancesButton = document.getElementById('choice__appliances');
-  const ustensilsButton = document.getElementById('choice__ustensils');
   displayChips(dropdownElements, 'ingredients');
   displayChips(dropdownElements, 'appliances');
   displayChips(dropdownElements, 'ustensils');
-  selectChip(ingredientsButton);
-  selectChip(appliancesButton);
-  selectChip(ustensilsButton);
-  removeChip();
-  // deleteOptionInArray();
 }
 // === Création des chips d'une liste donnée ====
 function displayChips (dropdownList, listId) {
@@ -74,22 +80,20 @@ function createChips (clickedElement, listId, resultsContainer, index) {
   chipsList.push(newElement);
 }
 
-export function selectChip (dropddownInput) {
-  dropddownInput.addEventListener('focus', () => {
-    const dropdownList = document.querySelectorAll('.option');
-    dropdownList.forEach(dropdownElement => {
-      dropdownElement.addEventListener('click', () => {
-        chipsList.forEach(chip => {
-          if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(dropdownElement.classList[0].replaceAll('option__', ''))) {
-            chip.classList.remove('hidden');
-            chip.classList.add('selectedChip');
-            selectedElements.push(chip);
-            dropdownElement.classList.add('selected');
-          }
-        });
-        resetInputValue();
-        onClicFilterRecipes(dropdownElement);
+export function selectChip () {
+  const dropdownList = document.querySelectorAll('.option');
+  dropdownList.forEach(dropdownElement => {
+    dropdownElement.addEventListener('click', () => {
+      chipsList.forEach(chip => {
+        if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(dropdownElement.classList[0].replaceAll('option__', ''))) {
+          chip.classList.remove('hidden');
+          chip.classList.add('selectedChip');
+          selectedElements.push(chip);
+          dropdownElement.classList.add('selected');
+        }
       });
+      resetInputValue();
+      onClicFilterRecipes(dropdownElement);
     });
   });
 }

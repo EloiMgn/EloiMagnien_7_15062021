@@ -3,7 +3,7 @@ import { STATE, addDisplayToState } from './state.js';
 import { onOpenDropdown, onCloseDropdown } from './showElementsSelection.js';
 import { displayDropdownLists } from './displayDropdownList.js';
 import { runDropdownSort } from './sortDropdownList.js';
-import { createDropdownElements, displayAllChips } from './displayChips.js';
+import { createDropdownElements, displayAllChips, runChipsSelection } from './displayChips.js';
 import { onInputMainSearch } from './runMainSearch.js';
 // import { createRecipesSelection } from './recipesSelection.js';
 // import { displayFilterRecipes } from './displayFilterRecipes.js';
@@ -20,6 +20,7 @@ export function refreshPage () {
   onCloseDropdown();
   displayDropdownLists(STATE);
   displayAllChips();
+  runChipsSelection();
   runDropdownSort();
   onInputMainSearch();
 }
