@@ -82,14 +82,7 @@ export function selectChip () {
   const dropdownList = document.querySelectorAll('.option');
   dropdownList.forEach(dropdownElement => {
     dropdownElement.addEventListener('click', () => {
-      chipsList.forEach(chip => {
-        if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(dropdownElement.classList[0].replaceAll('option__', ''))) {
-          chip.classList.remove('hidden');
-          chip.classList.add('selectedChip');
-          selectedElements.push(chip);
-          dropdownElement.classList.add('selected');
-        }
-      });
+      onKeyPressSelectChip(dropdownElement);
       resetInputValue();
       onClicFilterRecipes(dropdownElement);
     });
