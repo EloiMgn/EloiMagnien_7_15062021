@@ -1,7 +1,7 @@
 import { selectChip, removeChip, selectedElements } from './displayChips.js';
 import { dropdownAppliances, dropdownIngredients, dropdownUstensils } from './displayDropdownList.js';
 // import { STATE } from './state.js';
-import { sortArray, removeDuplicates, firstLetterMaj, clearShowedList, showList } from './utils.js';
+import { sortArray, removeDuplicates, firstLetterMaj, clearShowedList, showList, selectFirstOption } from './utils.js';
 
 export function runDropdownSort () {
   // updateDropdownIngredient(STATE);
@@ -17,6 +17,7 @@ function onInputDropdown (dropDowArray, listId) {
     filterDropdown(dropDowArray, listId, input, selectedElements);
     selectChip();
     removeChip();
+    selectFirstOption(input, listId);
   });
 }
 

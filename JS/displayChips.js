@@ -96,6 +96,19 @@ export function selectChip () {
   });
 }
 
+export function onKeyPressSelectChip (dropdownElement) {
+  chipsList.forEach(chip => {
+    if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(dropdownElement.classList[0].replaceAll('option__', ''))) {
+      chip.classList.remove('hidden');
+      chip.classList.add('selectedChip');
+      selectedElements.push(chip);
+      dropdownElement.classList.add('selected');
+    }
+  });
+  resetInputValue();
+  onClicFilterRecipes(dropdownElement);
+}
+
 export function removeChip () {
   const chipsListClose = document.querySelectorAll('.deleteSelectedResult');
   const selectedList = document.querySelectorAll('.option');

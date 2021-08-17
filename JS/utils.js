@@ -1,3 +1,4 @@
+import { onKeyPressSelectChip } from './displayChips.js';
 import { displayFilterRecipes } from './displayFilterRecipes.js';
 
 // === Rechargement de l'affichage des recettes ===
