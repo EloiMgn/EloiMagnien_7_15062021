@@ -1,7 +1,7 @@
-import { selectChip, removeChip, selectedElements } from './displayChips.js';
+import { selectChip, removeChip, selectedElements, onKeyPressSelectChip } from './displayChips.js';
 import { dropdownAppliances, dropdownIngredients, dropdownUstensils } from './displayDropdownList.js';
 // import { STATE } from './state.js';
-import { sortArray, removeDuplicates, firstLetterMaj, clearShowedList, showList } from './utils.js';
+import { sortArray, removeDuplicates, firstLetterMaj, clearShowedList, showList, selectFirstOption } from './utils.js';
 
 export function runDropdownSort () {
   // updateDropdownIngredient(STATE);
@@ -10,13 +10,19 @@ export function runDropdownSort () {
   onInputDropdown(dropdownUstensils, 'ustensils');
 }
 
-function onInputDropdown (dropDowArray, listId) {
+function onInputDropdown (dropDownArray, listId) {
   const input = document.getElementById(`choice__${listId}`);
   input.addEventListener('input', () => {
     clearShowedList(listId);
-    filterDropdown(dropDowArray, listId, input, selectedElements);
+    filterDropdown(dropDownArray, listId, input, selectedElements);
     selectChip();
     removeChip();
+    input.addEventListener('keypress', event => {
+      const firstOption = document.querySelector(`.option__${listId}`);
+      if (event.key === 'Enter') {
+        onKeyPressSelectChip(firstOption);
+      }
+    });
   });
 }
 

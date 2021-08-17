@@ -1,3 +1,4 @@
+import { onKeyPressSelectChip } from './displayChips.js';
 import { displayFilterRecipes } from './displayFilterRecipes.js';
 
 // === Rechargement de l'affichage des recettes ===
@@ -11,6 +12,9 @@ export function reloadRecipeSelection (datas) {
   }
 }
 
+export function selectFirstOption (input, firstOption) {
+  
+}
 // === Mise en Majuscule de la première lettre d'une string ===
 export function firstLetterMaj (myString) {
   return (myString + '').charAt(0).toUpperCase() + myString.substr(1);
