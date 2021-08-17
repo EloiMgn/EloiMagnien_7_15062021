@@ -74,7 +74,6 @@ export function onCloseFilterRecipes () {
       });
     });
   } else if (selectedElements.length === 0) {
-    console.log('oh shit');
     STATE.forEach(recipe => {
       recipe.display = true;
     });

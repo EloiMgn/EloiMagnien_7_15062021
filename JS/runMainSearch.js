@@ -1,6 +1,6 @@
 // import { STATE } from './state.js';
 
-import { filterRecipesByMainSearch } from './filterRecipes.js';
+import { filterRecipesByMainSearch } from './filteringRecipes.js';
 import { resetInputValue } from './utils.js';
 
 export function onInputMainSearch () {

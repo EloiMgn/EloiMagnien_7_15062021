@@ -1,6 +1,6 @@
 
 import { firstLetterMaj, removeDuplicates, resetInputValue, sortArray } from './utils.js';
-import { onClicFilterRecipes, onCloseFilterRecipes } from './filterRecipes.js';
+import { onClicFilterRecipes, onCloseFilterRecipes } from './filteringRecipes.js';
 import { STATE } from './state.js';
 
 export const chipsList = [];
