@@ -12,8 +12,13 @@ export function reloadRecipeSelection (datas) {
   }
 }
 
-export function selectFirstOption (input, firstOption) {
-  
+export function selectFirstOption (input, listId) {
+  input.addEventListener('keypress', event => {
+    const firstOption = document.querySelector(`.option__${listId}`);
+    if (event.key === 'Enter') {
+      onKeyPressSelectChip(firstOption);
+    }
+  });
 }
 // === Mise en Majuscule de la première lettre d'une string ===
 export function firstLetterMaj (myString) {
