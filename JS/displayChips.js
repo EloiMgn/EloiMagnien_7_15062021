@@ -1,9 +1,7 @@
 
 import { firstLetterMaj, removeDuplicates, resetInputValue, sortArray } from './utils.js';
 import { onClicFilterRecipes, onCloseFilterRecipes } from './filterRecipes.js';
-// import { updateDropdownIngredient } from './sortDropdownList.js';
 import { STATE } from './state.js';
-// import { removeDuplicates, sortArray } from './utils.js';
 
 export const chipsList = [];
 export const selectedElements = [];
@@ -112,8 +110,8 @@ export function removeChip () {
         }
       });
       if (selectedElements.length > 0) {
-        for (let i = 0; i < selectedElements.length; i++) {
-          if (selectedElements[i].querySelector('p').innerHTML.toLowerCase() === cross.previousElementSibling.innerHTML.toLowerCase()) {
+        for (const i of selectedElements) {
+          if (i.querySelector('p').innerHTML.toLowerCase() === cross.previousElementSibling.innerHTML.toLowerCase()) {
             selectedElements.splice(i, 1);
           }
         }
@@ -122,30 +120,3 @@ export function removeChip () {
     });
   });
 }
-
-// export function selectChip (inputId) {
-//   const chipsList = document.querySelectorAll('.secondSearch__results__select');
-//   const dropdownList = document.querySelectorAll('.option');
-
-//   dropdownList.forEach(option => {
-//     option.addEventListener('click', () => {
-//       for (let i = 0; i < chipsList.length; i++) {
-//         if (chipsList[i].classList.contains(option.innerHTML.replaceAll(' ', '_'))) {
-//           chipsList[i].classList.remove('hidden');
-//           option.classList.add('selected');
-//         }
-//       }
-//       clearInputValue(inputId);
-//       // chercher les recette qui ont de chipList[i] dans les recette en display true
-//       STATE.recipes.forEach(recipe => {
-//         if (recipe.display === true) {
-//           const position = recipe.ingredients.map(e => e.ingredient).indexOf(option.innerHTML);
-//           if (position < 0) {
-//             recipe.display = false;
-//           }
-//         }
-//       });
-//       displayFilterRecipes();
-//     });
-//   });
-// }

@@ -3,35 +3,30 @@ import { displayFilterRecipes } from './displayFilterRecipes.js';
 import { displayErrorMessage } from './showErrorpage.js';
 import { STATE } from './state.js';
 
+// === VERSION 2 : Suppression de la méthode indexOf() et utilisation de la méthode includes() ====
+
 export function onClicFilterRecipes (option) {
-  // chercher les recette qui ont de chipList[i] dans les recettes en display true
-  if (option.classList.contains('option__ingredients')) {
-    STATE.forEach(recipe => {
+  // chercher les recettes qui ont de chipList[i] dans les recettes en display true
+  STATE.forEach(recipe => {
+    if (option.classList.contains('option__ingredients')) {
       if (recipe.display === true) {
-        const position = recipe.ingredients.map(e => e.ingredient).indexOf(option.innerHTML);
-        if (position < 0) {
+        if (!recipe.ingredients.map(e => e.ingredient).includes(option.innerHTML)) {
           recipe.display = false;
         }
       }
-    });
-  } else if (option.classList.contains('option__appliances')) {
-    STATE.forEach(recipe => {
+    } else if (option.classList.contains('option__appliances')) {
       if (recipe.display === true) {
-        const position = recipe.appliance.indexOf(option.innerHTML);
-        if (position < 0) {
+        if (!recipe.appliance.includes(option.innerHTML)) {
           recipe.display = false;
         }
       }
-    });
-  } else if (option.classList.contains('option__ustensils')) { // indexOf à la place du contains
-    STATE.forEach(recipe => {
-      if (recipe.display === true) { // transformer les if en switch
-        for (let i = 0; i < recipe.ustensilsList.ustensils.length; i++) { // changer les for en for of ou forEach
-          const positionUstensil = recipe.ustensilsList.ustensils[i].indexOf(option.innerHTML.toLowerCase());
-          if (positionUstensil >= 0) {
+    } else if (option.classList.contains('option__ustensils')) {
+      if (recipe.display === true) {
+        for (const i of recipe.ustensilsList.ustensils) { // === UTILISATION DU forOf A LA PLACE DU for ===
+          if (i.includes(option.innerHTML.toLowerCase())) {
             recipe.ustensilsList.found = true;
             break;
-          } else if (positionUstensil < 0) {
+          } else if (!i.includes(option.innerHTML.toLowerCase())) {
             recipe.ustensilsList.found = false;
           }
         }
@@ -39,45 +34,47 @@ export function onClicFilterRecipes (option) {
           recipe.display = false;
         }
       }
-    });
-  }
+    }
+  });
   displayFilterRecipes(STATE);
   displayErrorMessage();
 };
 
 function getUstensilPosition (recipe, option) {
-  for (let i = 0; i < recipe.ustensilsList.ustensils.length; i++) { // changer les for en for of ou forEach
-    const positionUstensil = recipe.ustensilsList.ustensils[i].indexOf(option.innerHTML.toLowerCase());
-    if (positionUstensil >= 0) {
+  for (const i of recipe.ustensilsList.ustensils) {
+    if (i.includes(option.toLowerCase())) {
       recipe.ustensilsList.found = true;
+
       break;
-    } else if (positionUstensil < 0) {
+    } else if (!i.includes(option.toLowerCase())) {
       recipe.ustensilsList.found = false;
     }
   }
   if (recipe.ustensilsList.found === false) {
     recipe.display = false;
-    return -1;
+    return false;
   } else {
-    return 1;
+    return true;
   }
 }
 
 export function onCloseFilterRecipes () {
   if (selectedElements.length > 0) {
     selectedElements.forEach(chip => {
+      const chipText = chip.querySelector('p').innerHTML;
       STATE.forEach(recipe => {
         if (recipe.display === false) {
-          const positionIngredient = recipe.ingredients.map(e => e.ingredient).indexOf(chip.querySelector('p').innerHTML);
-          const positionAppliance = recipe.appliance.indexOf(chip.querySelector('p').innerHTML);
-          const positionUstensil = getUstensilPosition(recipe, chip.querySelector('p'));
-          if (positionIngredient !== -1 || positionAppliance !== -1 || positionUstensil !== -1) {
+          const condition1 = recipe.ingredients.map(e => e.ingredient).includes(chipText);
+          const condition2 = recipe.appliance.includes(chipText);
+          const condition3 = getUstensilPosition(recipe, chipText);
+          if (condition1 || condition2 || condition3) {
             recipe.display = true;
           }
         }
       });
     });
   } else if (selectedElements.length === 0) {
+    console.log('oh shit');
     STATE.forEach(recipe => {
       recipe.display = true;
     });
@@ -90,18 +87,18 @@ export function filterRecipesByMainSearch (option) {
   // == recherche dans les recttes en display = true ===
   if (option.length >= 3) {
     STATE.forEach(recipe => {
-      const positionIngredient = recipe.ingredients.map(e => e.ingredient.toLowerCase()).indexOf(option.toLowerCase());
-      const positionTitle = recipe.name.toLowerCase().indexOf(option.toLowerCase());
-      const positionDescription = recipe.description.toLowerCase().indexOf(option.toLowerCase());
+      const includeInIngredient = recipe.ingredients.map(e => e.ingredient.toLowerCase()).includes(option.toLowerCase());
+      const includeInTitle = recipe.name.toLowerCase().includes(option.toLowerCase());
+      const includeInDescription = recipe.description.toLowerCase().includes(option.toLowerCase());
       if (recipe.display === true) {
-        if (positionIngredient < 0 && positionTitle < 0 && positionDescription < 0) {
+        if (!includeInIngredient && !includeInTitle && !includeInDescription) {
           recipe.display = false;
         }
       }
       // === recherche dans les recettes en display = false dans le cas d'une erreur de frappe ====
       if (recipe.display === false) {
         if (selectedElements.length === 0) { // si aucune chip n'a déja été sélectionnée ===
-          if (positionIngredient >= 0 || positionTitle >= 0 || positionDescription >= 0) {
+          if (includeInIngredient || includeInTitle || includeInDescription) {
             recipe.display = true;
           }
         }
@@ -114,10 +111,3 @@ export function filterRecipesByMainSearch (option) {
     onCloseFilterRecipes();
   }
 }
-
-// function arrayObjectIndexOf (searchTerm, property) {
-//   for (let i = 0, len = STATE.length; i < len; i++) {
-//     if (STATE[i][property] === searchTerm) return i + 1;
-//   }
-//   return -1;
-// }

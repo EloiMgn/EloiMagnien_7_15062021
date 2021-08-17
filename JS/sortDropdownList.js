@@ -28,7 +28,7 @@ function filterDropdown (dropDownArray, listId, myInput, chips) {
     if (chips.length > 0) {
       chips.forEach(chip => {
         const condition1 = option.toLowerCase() !== chip.querySelector('p').innerHTML.toLowerCase();
-        const condition2 = option.toLowerCase().indexOf(`${myInput.value.toLowerCase()}`) !== -1;
+        const condition2 = option.toLowerCase().includes(`${myInput.value.toLowerCase()}`);
         if (condition1 && condition2) {
           elements.push(firstLetterMaj(option));
         } else if (option.toLowerCase() === chip.querySelector('p').innerHTML.toLowerCase()) {
@@ -36,7 +36,7 @@ function filterDropdown (dropDownArray, listId, myInput, chips) {
         }
       });
     } else {
-      if (option.toLowerCase().indexOf(`${myInput.value.toLowerCase()}`) !== -1) {
+      if (option.toLowerCase().includes(`${myInput.value.toLowerCase()}`)) {
         elements.push(firstLetterMaj(option));
       }
     }
@@ -45,21 +45,3 @@ function filterDropdown (dropDownArray, listId, myInput, chips) {
   sortArray(filteredElements);
   showList(filteredElements, listId);
 }
-
-// export function updateDropdownIngredient (datas) {
-//   const dropdownIngredientsTemp = [];
-//   const ingredientsButton = document.getElementById('choice__ingredients');
-//   if (ingredientsButton.value !== '') {
-//     datas.forEach(recipe => {
-//       if (recipe.display === true) {
-//         for (let i = 0; i < recipe.ingredients.length; i++) {
-//           dropdownIngredientsTemp.push(firstLetterMaj(recipe.ingredients[i].ingredient));
-//         }
-//       }
-//     });
-//     removeDuplicates(dropdownIngredientsTemp, dropdownIngredients);
-//     sortArray(dropdownIngredients);
-//     clearShowedList('ingredients');
-//     showList(dropdownIngredients, 'ingredients');
-//   };
-// }

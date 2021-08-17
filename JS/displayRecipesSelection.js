@@ -40,11 +40,11 @@ function displayRecipeImg () {
 
 // == Création du titre de la recette ===
 function createRecipeTitle (id, descriptionTop, datas) {
-  for (let i = 0; i < datas.length; i++) {
-    if (datas[i].id === parseInt(id)) {
+  for (const i of datas) {
+    if (i.id === parseInt(id)) {
       const recipeTitle = document.createElement('h2');
       descriptionTop.appendChild(recipeTitle);
-      recipeTitle.textContent = `${datas[i].name}`;
+      recipeTitle.textContent = `${i.name}`;
       recipeTitle.classList.add('selection__card__top__title');
     }
   }
@@ -52,8 +52,8 @@ function createRecipeTitle (id, descriptionTop, datas) {
 
 // == Création du temps de prépâration de la rectte ===
 function createRecipeTime (id, descriptionTop, datas) {
-  for (let i = 0; i < datas.length; i++) {
-    if (datas[i].id === parseInt(id)) {
+  for (const i of datas) {
+    if (i.id === parseInt(id)) {
       const recipeTime = document.createElement('div');
       recipeTime.classList.add('selection__card__top__time');
       descriptionTop.appendChild(recipeTime);
@@ -61,7 +61,7 @@ function createRecipeTime (id, descriptionTop, datas) {
       const timeText = document.createElement('p');
       recipeTime.appendChild(timeLogo);
       recipeTime.appendChild(timeText);
-      timeText.textContent = `${datas[i].time} min`;
+      timeText.textContent = `${i.time} min`;
       timeLogo.classList.add('far');
       timeLogo.classList.add('fa-clock');
     }
@@ -82,12 +82,12 @@ function createCardDescriptionTop (datas) {
 
 // == Insertion de la liste d'ingrédient de la recette ====
 function createRecipeIngredientsList (id, descriptionBottom, datas) {
-  for (let i = 0; i < datas.length; i++) {
-    if (datas[i].id === parseInt(id)) {
+  for (const i of datas) {
+    if (i.id === parseInt(id)) {
       const recipeIngredientsList = document.createElement('ul');
       recipeIngredientsList.classList.add('selection__card__bottom__ingredients');
       descriptionBottom.appendChild(recipeIngredientsList);
-      datas[i].ingredients.forEach((ingredient) => {
+      i.ingredients.forEach((ingredient) => {
         const listElement = document.createElement('div');
         recipeIngredientsList.appendChild(listElement);
         listElement.classList.add('list__element');
