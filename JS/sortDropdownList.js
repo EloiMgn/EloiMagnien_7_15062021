@@ -10,11 +10,11 @@ export function runDropdownSort () {
   onInputDropdown(dropdownUstensils, 'ustensils');
 }
 
-function onInputDropdown (dropDowArray, listId) {
+function onInputDropdown (dropDownArray, listId) {
   const input = document.getElementById(`choice__${listId}`);
   input.addEventListener('input', () => {
     clearShowedList(listId);
-    filterDropdown(dropDowArray, listId, input, selectedElements);
+    filterDropdown(dropDownArray, listId, input, selectedElements);
     selectChip();
     removeChip();
     selectFirstOption(input, listId);

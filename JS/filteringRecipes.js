@@ -3,30 +3,32 @@ import { displayFilterRecipes } from './displayFilterRecipes.js';
 import { displayErrorMessage } from './showErrorpage.js';
 import { STATE } from './state.js';
 
-// === VERSION 2 : Suppression de la méthode indexOf() et utilisation de la méthode includes() ====
-
 export function onClicFilterRecipes (option) {
-  // chercher les recettes qui ont de chipList[i] dans les recettes en display true
-  STATE.forEach(recipe => {
-    if (option.classList.contains('option__ingredients')) {
+  // chercher les recette qui ont de chipList[i] dans les recettes en display true
+  if (option.classList.contains('option__ingredients')) {
+    STATE.forEach(recipe => {
       if (recipe.display === true) {
         if (!recipe.ingredients.map(e => e.ingredient).includes(option.innerHTML)) {
           recipe.display = false;
         }
       }
-    } else if (option.classList.contains('option__appliances')) {
+    });
+  } else if (option.classList.contains('option__appliances')) {
+    STATE.forEach(recipe => {
       if (recipe.display === true) {
         if (!recipe.appliance.includes(option.innerHTML)) {
           recipe.display = false;
         }
       }
-    } else if (option.classList.contains('option__ustensils')) {
+    });
+  } else if (option.classList.contains('option__ustensils')) {
+    STATE.forEach(recipe => {
       if (recipe.display === true) {
-        for (const i of recipe.ustensilsList.ustensils) { // === UTILISATION DU forOf A LA PLACE DU for ===
-          if (i.includes(option.innerHTML.toLowerCase())) {
+        for (let i = 0; i < recipe.ustensilsList.ustensils.length; i++) {
+          if (recipe.ustensilsList.ustensils[i].includes(option.innerHTML.toLowerCase())) {
             recipe.ustensilsList.found = true;
             break;
-          } else if (!i.includes(option.innerHTML.toLowerCase())) {
+          } else if (!recipe.ustensilsList.ustensils[i].includes(option.innerHTML.toLowerCase())) {
             recipe.ustensilsList.found = false;
           }
         }
@@ -34,19 +36,18 @@ export function onClicFilterRecipes (option) {
           recipe.display = false;
         }
       }
-    }
-  });
+    });
+  }
   displayFilterRecipes(STATE);
   displayErrorMessage();
 };
 
 function getUstensilPosition (recipe, option) {
-  for (const i of recipe.ustensilsList.ustensils) {
-    if (i.includes(option.toLowerCase())) {
+  for (let i = 0; i < recipe.ustensilsList.ustensils.length; i++) {
+    if (recipe.ustensilsList.ustensils[i].includes(option.innerHTML.toLowerCase())) {
       recipe.ustensilsList.found = true;
-
       break;
-    } else if (!i.includes(option.toLowerCase())) {
+    } else if (!recipe.ustensilsList.ustensils[i].includes(option.innerHTML.toLowerCase())) {
       recipe.ustensilsList.found = false;
     }
   }
@@ -61,13 +62,12 @@ function getUstensilPosition (recipe, option) {
 export function onCloseFilterRecipes () {
   if (selectedElements.length > 0) {
     selectedElements.forEach(chip => {
-      const chipText = chip.querySelector('p').innerHTML;
       STATE.forEach(recipe => {
         if (recipe.display === false) {
-          const condition1 = recipe.ingredients.map(e => e.ingredient).includes(chipText);
-          const condition2 = recipe.appliance.includes(chipText);
-          const condition3 = getUstensilPosition(recipe, chipText);
-          if (condition1 || condition2 || condition3) {
+          const includesIngredient = recipe.ingredients.map(e => e.ingredient).includes(chip.querySelector('p').innerHTML);
+          const includesAppliance = recipe.appliance.includes(chip.querySelector('p').innerHTML);
+          const includesUstensil = getUstensilPosition(recipe, chip.querySelector('p'));
+          if (includesIngredient || includesAppliance || includesUstensil) {
             recipe.display = true;
           }
         }
@@ -86,18 +86,18 @@ export function filterRecipesByMainSearch (option) {
   // == recherche dans les recttes en display = true ===
   if (option.length >= 3) {
     STATE.forEach(recipe => {
-      const includeInIngredient = recipe.ingredients.map(e => e.ingredient.toLowerCase()).includes(option.toLowerCase());
-      const includeInTitle = recipe.name.toLowerCase().includes(option.toLowerCase());
-      const includeInDescription = recipe.description.toLowerCase().includes(option.toLowerCase());
+      const includesInIngredient = recipe.ingredients.map(e => e.ingredient.toLowerCase()).includes(option.toLowerCase());
+      const includesInTitle = recipe.name.toLowerCase().includes(option.toLowerCase());
+      const includesInDescription = recipe.description.toLowerCase().includes(option.toLowerCase());
       if (recipe.display === true) {
-        if (!includeInIngredient && !includeInTitle && !includeInDescription) {
+        if (includesInIngredient === false && includesInTitle === false && includesInDescription === false) {
           recipe.display = false;
         }
       }
       // === recherche dans les recettes en display = false dans le cas d'une erreur de frappe ====
       if (recipe.display === false) {
         if (selectedElements.length === 0) { // si aucune chip n'a déja été sélectionnée ===
-          if (includeInIngredient || includeInTitle || includeInDescription) {
+          if (includesInIngredient === true || includesInTitle === true || includesInDescription === true) {
             recipe.display = true;
           }
         }
