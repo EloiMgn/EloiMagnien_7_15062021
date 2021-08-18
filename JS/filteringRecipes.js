@@ -13,7 +13,7 @@ export function onClicFilterRecipes (option) {
           recipe.display = false;
         }
       }
-    };
+    }
   } else if (option.classList.contains('option__appliances')) {
     for (const recipe of STATE) {
       if (recipe.display === true) {
@@ -22,7 +22,7 @@ export function onClicFilterRecipes (option) {
           recipe.display = false;
         }
       }
-    };
+    }
   } else if (option.classList.contains('option__ustensils')) { // indexOf à la place du contains
     for (const recipe of STATE) {
       if (recipe.display === true) { // transformer les if en switch
@@ -39,11 +39,11 @@ export function onClicFilterRecipes (option) {
           recipe.display = false;
         }
       }
-    };
+    }
   }
   displayFilterRecipes(STATE);
   displayErrorMessage();
-};
+}
 
 function getUstensilPosition (recipe, option) {
   for (const i of recipe.ustensilsList.ustensils) { // changer les for en for of ou forEach
@@ -75,12 +75,12 @@ export function onCloseFilterRecipes () {
             recipe.display = true;
           }
         }
-      };
-    };
+      }
+    }
   } else if (selectedElements.length === 0) {
     for (const recipe of STATE) {
       recipe.display = true;
-    };
+    }
   }
   displayFilterRecipes(STATE);
   displayErrorMessage();
@@ -106,7 +106,7 @@ export function filterRecipesByMainSearch (option) {
           }
         }
       }
-    };
+    }
     displayFilterRecipes(STATE);
     displayErrorMessage();
     // == remise à 0 de l'affichage des recttes en focntion des chips sélectionnées ===
