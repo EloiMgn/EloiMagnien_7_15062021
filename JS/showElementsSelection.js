@@ -50,7 +50,7 @@ function openArrow (listId) {
 };
 
 // === Changement de direction de la flèche à la fermeture de la dropdown ===
-function closeArrow (listId) {
+export function closeArrow (listId) {
   const arrow = document.getElementById(`${listId}Arrow`);
   arrow.classList.remove('fa-chevron-up');
   arrow.classList.add('fa-chevron-down');

@@ -3,6 +3,7 @@ import { firstLetterMaj, removeDuplicates, resetInputValue, sortArray } from './
 import { onClicFilterRecipes, onCloseFilterRecipes } from './filteringRecipes.js';
 // import { updateDropdownIngredient } from './sortDropdownList.js';
 import { STATE } from './state.js';
+import { closeArrow } from './showElementsSelection.js';
 // import { removeDuplicates, sortArray } from './utils.js';
 
 export const chipsList = [];
@@ -84,8 +85,9 @@ export function selectChip () {
   const dropdownList = document.querySelectorAll('.option');
   dropdownList.forEach(dropdownElement => {
     dropdownElement.addEventListener('click', () => {
+      const listId = dropdownElement.classList[0].replaceAll('option__', '');
       chipsList.forEach(chip => {
-        if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(dropdownElement.classList[0].replaceAll('option__', ''))) {
+        if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(listId)) {
           chip.classList.remove('hidden');
           chip.classList.add('selectedChip');
           selectedElements.push(chip);
@@ -94,8 +96,19 @@ export function selectChip () {
       });
       resetInputValue();
       onClicFilterRecipes(dropdownElement);
+      closeDropdown(listId);
     });
   });
+}
+
+function closeDropdown (listId) {
+  const input = document.getElementById(`choice__${listId}`);
+  const button = document.getElementById(`Search--${listId}`);
+  const dropdown = document.getElementById(`${listId}__dropdown`);
+  dropdown.style.display = 'none';
+  input.classList.remove('openedDropdown');
+  button.classList.remove(`Search--${listId}`);
+  closeArrow(listId);
 }
 
 export function onKeyPressSelectChip (dropdownElement) {
