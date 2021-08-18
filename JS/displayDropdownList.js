@@ -1,5 +1,6 @@
 
 // import { STATE } from './state.js';
+import { selectedElements } from './displayChips.js';
 import { sortArray, removeDuplicates, firstLetterMaj, clearShowedList, showList } from './utils.js';
 // import { displayChips } from './displayChips.js';
 export const dropdownIngredients = [];
@@ -12,6 +13,16 @@ export function displayDropdownLists (datas) {
   createDropdownUstensils(datas);
 }
 
+function deleteOptionInList () {
+  const options = document.querySelectorAll('.option');
+  selectedElements.forEach(chip => {
+    options.forEach(option => {
+      if (option.innerHTML.toLowerCase() === chip.querySelector('p').innerHTML.toLowerCase()) {
+        option.classList.add('selected');
+      }
+    });
+  });
+}
 // == ajout de la liste d'option dans le dropdown des ingredients ===
 function createDropdownIngredients (datas) {
   const dropdownIngredientsTemp = [];
@@ -32,6 +43,7 @@ function createDropdownIngredients (datas) {
       showList(dropdownIngredients, 'ingredients');
       clearDropdownList(ingredientsButton, dropdownIngredientsTemp);
       clearDropdownList(ingredientsButton, dropdownIngredients);
+      deleteOptionInList();
     }
   });
 };
@@ -53,6 +65,7 @@ function createDropdownAppliances (datas) {
       showList(dropdownAppliances, 'appliances');
       clearDropdownList(appliancesButton, dropdownAppliancesTemp);
       clearDropdownList(appliancesButton, dropdownAppliances);
+      deleteOptionInList();
     }
   });
 }
@@ -76,6 +89,7 @@ function createDropdownUstensils (datas) {
       showList(dropdownUstensils, 'ustensils');
       clearDropdownList(ustensilsButton, dropdownUstensilsTemp);
       clearDropdownList(ustensilsButton, dropdownUstensils);
+      deleteOptionInList();
     }
   });
 }

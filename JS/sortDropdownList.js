@@ -46,21 +46,3 @@ function filterDropdown (dropDownArray, listId, myInput, chips) {
   sortArray(filteredElements);
   showList(filteredElements, listId);
 }
-
-// export function updateDropdownIngredient (datas) {
-//   const dropdownIngredientsTemp = [];
-//   const ingredientsButton = document.getElementById('choice__ingredients');
-//   if (ingredientsButton.value !== '') {
-//     datas.forEach(recipe => {
-//       if (recipe.display === true) {
-//         for (let i = 0; i < recipe.ingredients.length; i++) {
-//           dropdownIngredientsTemp.push(firstLetterMaj(recipe.ingredients[i].ingredient));
-//         }
-//       }
-//     });
-//     removeDuplicates(dropdownIngredientsTemp, dropdownIngredients);
-//     sortArray(dropdownIngredients);
-//     clearShowedList('ingredients');
-//     showList(dropdownIngredients, 'ingredients');
-//   };
-// }
