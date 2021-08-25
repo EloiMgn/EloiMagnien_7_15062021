@@ -8,6 +8,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .second__search {
     display: flex;
     justify-content: flex-start;
+    position: absolute;
 }
 
 .Search {
@@ -15,11 +16,10 @@ input[type="search"]::-webkit-search-results-decoration {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: fit-content;
+    width: 220px;
     margin: 10px;
     border: none;
     border-radius: 5px;
-    // inline-size: 500px;
 
     &--ingredients {
         background-color: $ingredientsColor;
