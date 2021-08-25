@@ -52,10 +52,13 @@ function onOpenList (listId) {
 // == Fermeture de la dropdown au clic sur la flèche ===
 function onCloseList (listId) {
   const arrow = document.getElementById(`${listId}Arrow`);
-  // const openDropdown = document.querySelector('.openedDropdown');
-
   arrow.addEventListener('click', () => {
-    closeDropdown(listId);
+    if (arrow.classList.contains('fa-chevron-up')) {
+      closeDropdown(listId);
+    } else {
+      const input = document.getElementById(`choice__${listId}`);
+      input.focus();
+    }
   });
 }
 
@@ -64,7 +67,6 @@ function openArrow (listId) {
   const arrow = document.getElementById(`${listId}Arrow`);
   arrow.classList.remove('fa-chevron-down');
   arrow.classList.add('fa-chevron-up');
-  // arrow.setAttribute('id', `${listId}ArrowOpen`);
 };
 
 // === Changement de direction de la flèche à la fermeture de la dropdown ===
