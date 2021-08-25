@@ -239,6 +239,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   height: fit-content;
+  padding-top: 80px;
 }
 .selection__card {
   background: #E7E7E7;
@@ -246,6 +247,7 @@ header {
   width: 380px;
   height: 364px;
   margin: 30px;
+  cursor: pointer;
 }
 .selection__card__img {
   width: 100%;
