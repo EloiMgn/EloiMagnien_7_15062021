@@ -20,10 +20,10 @@ input[type=search]::-webkit-search-results-decoration {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  width: 220px;
   margin: 10px;
   border: none;
   border-radius: 5px;
+  width: 220px;
 }
 .Search--ingredients {
   background-color: #3282F7;
@@ -36,7 +36,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 
 .dropbtn {
-  width: 100%;
+  width: 220px;
   height: 70px;
   border: none;
   border-radius: 5px;
@@ -50,6 +50,9 @@ input[type=search]::-webkit-search-results-decoration {
   line-height: 22px;
   color: #ffffff;
   border-color: #ffffff;
+  position: relative;
+  top: -11px;
+  left: -3px;
 }
 .dropbtn::placeholder {
   font-family: Lato;
@@ -91,6 +94,7 @@ input[type=search]::-webkit-search-results-decoration {
   right: 40px;
   color: #ffffff;
   cursor: pointer;
+  bottom: 11px;
 }
 
 .options {
@@ -99,7 +103,6 @@ input[type=search]::-webkit-search-results-decoration {
   flex-wrap: wrap;
   justify-content: flex-start;
   max-height: 400px;
-  height: 100%;
   width: auto;
   font-family: Lato;
   font-style: normal;
