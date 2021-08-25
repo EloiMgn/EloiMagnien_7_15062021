@@ -8,6 +8,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .second__search {
     display: flex;
     justify-content: flex-start;
+    position: absolute;
 }
 
 .Search {
@@ -15,11 +16,10 @@ input[type="search"]::-webkit-search-results-decoration {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: fit-content;
     margin: 10px;
     border: none;
     border-radius: 5px;
-    // inline-size: 500px;
+    width: 220px;
 
     &--ingredients {
         background-color: $ingredientsColor;
@@ -35,7 +35,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .dropbtn{
-    width: 100%;
+    width: 220px;
     height: 70px;
     border: none;
     border-radius: 5px;
@@ -49,6 +49,9 @@ input[type="search"]::-webkit-search-results-decoration {
     line-height: 22px;
     color: $textColor;
     border-color: $textColor;
+    position: relative;
+    top: -11px;
+    left: -3px;
 
     &::placeholder {
         font-family: Lato;
@@ -69,7 +72,6 @@ input[type="search"]::-webkit-search-results-decoration {
     }
     &--ingredients {
         background-color: $ingredientsColor;
-
     }
 
     &--appliances {
@@ -94,6 +96,7 @@ input[type="search"]::-webkit-search-results-decoration {
     right: 40px;
     color: $textColor;
     cursor: pointer;
+    bottom: 11px;
 }
 
 .options{
@@ -102,7 +105,6 @@ input[type="search"]::-webkit-search-results-decoration {
     flex-wrap: wrap;
     justify-content: flex-start;
     max-height: 400px;
-    height: 100%;
     width: auto;
     font-family: Lato;
     font-style: normal;

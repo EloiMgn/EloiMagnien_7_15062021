@@ -3,12 +3,14 @@
     flex-wrap: wrap;
     justify-content: center;
     height: fit-content;
+    padding-top: 80px;
     &__card {
         background: #E7E7E7;
         border-radius: 5px;
         width: 380px;
         height: 364px;
         margin: 30px;
+        cursor: pointer;
         &__img {
             width: 100%;
             min-width: 100%;
