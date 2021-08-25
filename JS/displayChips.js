@@ -1,10 +1,8 @@
 
 import { firstLetterMaj, removeDuplicates, resetInputValue, sortArray } from './utils.js';
 import { onClicFilterRecipes, onCloseFilterRecipes } from './filteringRecipes.js';
-// import { updateDropdownIngredient } from './sortDropdownList.js';
 import { STATE } from './state.js';
-import { closeArrow } from './showElementsSelection.js';
-// import { removeDuplicates, sortArray } from './utils.js';
+import { closeDropdown } from './showElementsSelection.js';
 
 export const chipsList = [];
 export const selectedElements = [];
@@ -101,16 +99,6 @@ export function selectChip () {
   });
 }
 
-function closeDropdown (listId) {
-  const input = document.getElementById(`choice__${listId}`);
-  const button = document.getElementById(`Search--${listId}`);
-  const dropdown = document.getElementById(`${listId}__dropdown`);
-  dropdown.style.display = 'none';
-  input.classList.remove('openedDropdown');
-  button.classList.remove(`Search--${listId}`);
-  closeArrow(listId);
-}
-
 export function onKeyPressSelectChip (dropdownElement) {
   chipsList.forEach(chip => {
     if (dropdownElement.innerHTML === chip.querySelector('p').innerHTML && chip.classList.contains(dropdownElement.classList[0].replaceAll('option__', ''))) {
@@ -120,8 +108,10 @@ export function onKeyPressSelectChip (dropdownElement) {
       dropdownElement.classList.add('selected');
     }
   });
+  const listId = dropdownElement.classList[0].replaceAll('option__', '');
   resetInputValue();
   onClicFilterRecipes(dropdownElement);
+  closeDropdown(listId);
 }
 
 export function removeChip () {
@@ -130,6 +120,10 @@ export function removeChip () {
 
   chipsListClose.forEach(cross => {
     cross.addEventListener('click', () => {
+      const openDropdown = document.querySelector('.openedDropdown');
+      if (openDropdown) {
+        closeDropdown(openDropdown.id.replaceAll('choice__', ''));
+      }
       cross.parentElement.classList.add('hidden'); // === suppression de la chip (passage en display:none) au clic sur la croix
       // réapparition de l'option dans le dropdown (suppression de la class selected)
       selectedList.forEach(option => {
@@ -138,8 +132,8 @@ export function removeChip () {
         }
       });
       if (selectedElements.length > 0) {
-        for (const i of selectedElements) {
-          if (i.querySelector('p').innerHTML.toLowerCase() === cross.previousElementSibling.innerHTML.toLowerCase()) {
+        for (let i = 0; i < selectedElements.length; i++) {
+          if (selectedElements[i].querySelector('p').innerHTML.toLowerCase() === cross.previousElementSibling.innerHTML.toLowerCase()) {
             selectedElements.splice(i, 1);
           }
         }
