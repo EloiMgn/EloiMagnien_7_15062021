@@ -12,6 +12,10 @@
   line-height: 22px;
   padding-left: 20px;
   outline: none;
+  @media screen and (max-width:768px) {
+  max-width: 350px;
+  height: 50px;
+}
 
   &::placeholder {
     font-family: Lato;
@@ -19,6 +23,9 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
+    @media screen and (max-width:768px) {
+      font-size: 11px;
+    }
   }
 
   &__icon {
@@ -26,6 +33,10 @@
     top: 162px;
     right: 70px;
     font-size: 170%;
+    @media screen and (max-width:768px) {
+      top: 115px;
+      right: 20px;
+    }
 
   }
 }

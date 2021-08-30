@@ -53,13 +53,14 @@
             <h1 id="text__logo" class="main__logo__text">Les Petits Plats</h1>
         </div>
     </header>
-    <nav>
-        <label for="main__search">
-        </label>
-        <input type="search" id="main__search" class="main__search"
-            placeholder="Rechercher un ingrédient, appareil, ustensiles, ou une recette">
-        <i class="fas fa-search main__search__icon"></i>
-
+    <nav class="searchSection">
+        <div class="main__search-container">
+            <label for="main__search">
+            </label>
+            <input type="search" id="main__search" class="main__search"
+                placeholder="Rechercher un ingrédient, appareil, ustensiles, ou une recette">
+            <i class="fas fa-search main__search__icon"></i>
+        </div>
         <div class="secondSearch__results" id="secondSearch__results">
 
         </div>
@@ -67,24 +68,32 @@
         <div class="second__search">
 
             <div class="Search" id="Search--ingredients">
-                <div class="searchBar searchBar--ingredients">
-                    <input type="search" id="choice__ingredients" class="dropbtn dropbtn--ingredients" placeholder="Ingrédients">
+                <div id="searchBar--ingredients" class="searchBar searchBar--ingredients">
+                    <input type="search" id="choice__ingredients" class="dropbtn dropbtn--ingredients"
+                        placeholder="Ingrédients">
+                    <i class="fas fa-carrot responsiveIcon" id="searchIcon__ingredients"></i>
                     <i id="ingredientsArrow" class="searchArrow fas fa-chevron-down"></i>
                 </div>
                 <div id="ingredients__dropdown" class="options options--ingredients"></div>
             </div>
 
             <div class="Search" id="Search--appliances">
-                <div class="searchBar searchBar--appliances">
-                    <input type="search" id="choice__appliances" class="dropbtn dropbtn--appliances" placeholder="Appareils">
+                <div id="searchBar--appliances" class="searchBar searchBar--appliances">
+                    <input type="search" id="choice__appliances" class="dropbtn dropbtn--appliances"
+                        placeholder="Appareils">
+                    <i class="fas fa-blender responsiveIcon" id="searchIcon__appliances"></i>
                     <i id="appliancesArrow" class="searchArrow fas fa-chevron-down"></i>
+
+
                 </div>
                 <div id="appliances__dropdown" class="options options--appliances"></div>
             </div>
 
             <div class="Search" id="Search--ustensils">
-                <div class="searchBar searchBar--ustensils">
-                    <input type="search" id="choice__ustensils" class="dropbtn dropbtn--ustensils" placeholder="Ustensiles">
+                <div id="searchBar--ustensils" class="searchBar searchBar--ustensils">
+                    <input type="search" id="choice__ustensils" class="dropbtn dropbtn--ustensils"
+                        placeholder="Ustensiles">
+                    <i class="fas fa-utensils responsiveIcon" id="searchIcon__ustensils"></i>
                     <i id="ustensilsArrow" class="searchArrow fas fa-chevron-down"></i>
                 </div>
                 <div id="ustensils__dropdown" class="options options--ustensils"></div>
@@ -95,7 +104,7 @@
     </nav>
     <section id="errorSection" class="errorSection">
         <h2 id="errorSection__message" class="errorSection__message">
-        Aucune recette ne correspond à vos critères... Vous pouvez chercher "Tarte aux pommes", "poisson", etc ...
+            Aucune recette ne correspond à vos critères... Vous pouvez chercher "Tarte aux pommes", "poisson", etc ...
         </h2>
     </section>
     <script type="module" src="./index.js"></script>

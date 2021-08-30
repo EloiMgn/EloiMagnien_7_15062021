@@ -5,12 +5,7 @@ import { displayDropdownLists } from './displayDropdownList.js';
 import { runDropdownSort } from './sortDropdownList.js';
 import { createDropdownElements, displayAllChips, runChipsSelection } from './displayChips.js';
 import { onInputMainSearch } from './runMainSearch.js';
-// import { createRecipesSelection } from './recipesSelection.js';
-// import { displayFilterRecipes } from './displayFilterRecipes.js';
-// import { selectChip, removeChip } from './displayChips.js';
-// // import { sortDropdown } from './filterDropdown.js';
-
-// // import { recipes } from '../datas/recipes.js';
+import { responsiveSearch } from './responsive.js';
 
 export function refreshPage () {
   addDisplayToState();
@@ -23,8 +18,7 @@ export function refreshPage () {
   runChipsSelection();
   runDropdownSort();
   onInputMainSearch();
+  responsiveSearch('ingredients');
+  responsiveSearch('appliances');
+  responsiveSearch('ustensils');
 }
-// export function refreshPage () {
-//   createRecipesSelection(STATE.recipes);
-//   displayFilterRecipes();
-// }

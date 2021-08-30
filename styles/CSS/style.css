@@ -1,6 +1,11 @@
 body {
   margin: 40px 60px;
 }
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+  }
+}
 
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-cancel-button,
@@ -12,7 +17,11 @@ input[type=search]::-webkit-search-results-decoration {
 .second__search {
   display: flex;
   justify-content: flex-start;
-  position: absolute;
+}
+@media screen and (max-width: 768px) {
+  .second__search {
+    justify-content: space-around;
+  }
 }
 
 .Search {
@@ -24,6 +33,14 @@ input[type=search]::-webkit-search-results-decoration {
   border: none;
   border-radius: 5px;
   width: 220px;
+  z-index: 2;
+}
+@media screen and (max-width: 768px) {
+  .Search {
+    margin: 0px;
+    width: 100%;
+    align-items: initial;
+  }
 }
 .Search--ingredients {
   background-color: #3282F7;
@@ -53,6 +70,15 @@ input[type=search]::-webkit-search-results-decoration {
   position: relative;
   top: -11px;
   left: -3px;
+}
+@media screen and (max-width: 768px) {
+  .dropbtn {
+    margin: 10px;
+    width: 100%;
+    position: initial;
+    display: flex;
+    justify-content: space-around;
+  }
 }
 .dropbtn::placeholder {
   font-family: Lato;
@@ -88,6 +114,14 @@ input[type=search]::-webkit-search-results-decoration {
   width: 220px;
   margin: 10px;
 }
+@media screen and (max-width: 768px) {
+  .searchBar {
+    width: 100%;
+    margin: 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
 
 .searchArrow {
   position: relative;
@@ -95,6 +129,23 @@ input[type=search]::-webkit-search-results-decoration {
   color: #ffffff;
   cursor: pointer;
   bottom: 11px;
+}
+@media screen and (max-width: 768px) {
+  .searchArrow {
+    right: -20px;
+    bottom: 50px;
+  }
+}
+
+.responsiveIcon {
+  display: none;
+  position: relative;
+  color: #ffffff;
+  cursor: pointer;
+  right: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  bottom: 50px;
 }
 
 .options {
@@ -177,6 +228,7 @@ input[type=search]::-webkit-search-results-decoration {
 
 .deleteSelectedResult {
   cursor: pointer;
+  color: #FFFFFF;
 }
 
 header {
@@ -224,6 +276,12 @@ header {
   padding-left: 20px;
   outline: none;
 }
+@media screen and (max-width: 768px) {
+  .main__search {
+    max-width: 350px;
+    height: 50px;
+  }
+}
 .main__search::placeholder {
   font-family: Lato;
   font-style: normal;
@@ -231,11 +289,28 @@ header {
   font-size: 18px;
   line-height: 22px;
 }
+@media screen and (max-width: 768px) {
+  .main__search::placeholder {
+    font-size: 11px;
+  }
+}
 .main__search__icon {
   position: absolute;
   top: 162px;
   right: 70px;
   font-size: 170%;
+}
+@media screen and (max-width: 768px) {
+  .main__search__icon {
+    top: 115px;
+    right: 20px;
+  }
+}
+
+.searchSection {
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .selection {
@@ -243,7 +318,11 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   height: fit-content;
-  padding-top: 80px;
+}
+@media screen and (max-width: 768px) {
+  .selection {
+    flex-direction: column;
+  }
 }
 .selection__card {
   background: #E7E7E7;
@@ -252,6 +331,12 @@ header {
   height: 364px;
   margin: 30px;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .selection__card {
+    margin: 10px auto;
+    max-width: 350px;
+  }
 }
 .selection__card__img {
   width: 100%;

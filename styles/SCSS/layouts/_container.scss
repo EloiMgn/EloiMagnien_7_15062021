@@ -1,9 +1,17 @@
+.searchSection {
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+}
 .selection {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     height: fit-content;
-    padding-top: 80px;
+    @media screen and (max-width:768px) {
+        flex-direction: column;
+    }
+
     &__card {
         background: #E7E7E7;
         border-radius: 5px;
@@ -11,6 +19,10 @@
         height: 364px;
         margin: 30px;
         cursor: pointer;
+        @media screen and (max-width:768px) {
+            margin: 10px auto;
+            max-width: 350px;
+        }
         &__img {
             width: 100%;
             min-width: 100%;
