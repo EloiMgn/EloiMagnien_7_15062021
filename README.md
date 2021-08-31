@@ -2,7 +2,7 @@
 
 Page GitHub Pages : 
 
-https://eloidev.github.io/EloiMagnien_7_15062021/
+https://eloimgn.github.io/EloiMagnien_7_15062021/
 
 Projet : 
 
