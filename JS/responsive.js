@@ -1,5 +1,5 @@
 export function responsiveSearch (listId) {
-  if (screen.availWidth < 720) {
+  if (screen.availWidth < 500) {
     responsiveIcons(listId);
   }
 }
@@ -29,12 +29,14 @@ function responsiveIcons (listId) {
 export function responsiveSelection () {
   const selection = document.querySelectorAll('.selectedChip');
   const recipeSelection = document.querySelector('#recipes__selection');
-  if (selection.length > 3 && selection.length <= 6) {
-    recipeSelection.style.marginTop = '100px';
-  } else if (selection.length <= 3) {
-    recipeSelection.style.marginTop = '40px';
-  }
-  if (selection.length > 6) {
-    recipeSelection.style.marginTop = '160px';
+  if (screen.availWidth < 500) {
+    if (selection.length > 3 && selection.length <= 6) {
+      recipeSelection.style.marginTop = '100px';
+    } else if (selection.length <= 3) {
+      recipeSelection.style.marginTop = '40px';
+    }
+    if (selection.length > 6) {
+      recipeSelection.style.marginTop = '160px';
+    }
   }
 }

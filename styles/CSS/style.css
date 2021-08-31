@@ -18,7 +18,7 @@ input[type=search]::-webkit-search-results-decoration {
   display: flex;
   justify-content: flex-start;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .second__search {
     justify-content: space-around;
     width: 100%;
@@ -36,7 +36,7 @@ input[type=search]::-webkit-search-results-decoration {
   width: 220px;
   z-index: 2;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .Search {
     margin: 0;
     margin: 0 10px;
@@ -73,7 +73,7 @@ input[type=search]::-webkit-search-results-decoration {
   top: -11px;
   left: -3px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .dropbtn {
     margin: 0px;
     width: 100%;
@@ -116,7 +116,7 @@ input[type=search]::-webkit-search-results-decoration {
   width: 220px;
   margin: 10px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .searchBar {
     width: 100%;
     margin: 0px;
@@ -132,7 +132,7 @@ input[type=search]::-webkit-search-results-decoration {
   cursor: pointer;
   bottom: 11px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .searchArrow {
     right: -20px;
     bottom: 25px;
@@ -207,7 +207,7 @@ input[type=search]::-webkit-search-results-decoration {
   color: #FFFFFF;
   padding: 5px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .secondSearch__results__select {
     width: 100px;
     height: 35px;
@@ -284,7 +284,7 @@ header {
   padding-left: 20px;
   outline: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .main__search {
     max-width: 350px;
     height: 50px;
@@ -298,7 +298,7 @@ header {
   font-size: 18px;
   line-height: 22px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .main__search::placeholder {
     font-size: 11px;
   }
@@ -309,9 +309,9 @@ header {
   right: 70px;
   font-size: 170%;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .main__search__icon {
-    top: 115px;
+    top: 125px;
     right: 20px;
   }
 }
@@ -328,7 +328,7 @@ header {
   justify-content: center;
   height: fit-content;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .selection {
     flex-direction: column;
     margin-top: 40px;
@@ -342,7 +342,7 @@ header {
   margin: 30px;
   cursor: pointer;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .selection__card {
     margin: 10px auto;
     max-width: 350px;
@@ -437,7 +437,7 @@ header {
   font-size: 18px;
   line-height: 22px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 500px) {
   .errorSection h2 {
     margin: auto 20px;
     text-align: center;

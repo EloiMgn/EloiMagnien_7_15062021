@@ -12,7 +12,7 @@
   line-height: 22px;
   padding-left: 20px;
   outline: none;
-  @media screen and (max-width:768px) {
+  @media screen and (max-width:500px) {
   max-width: 350px;
   height: 50px;
   margin-top: 20px;
@@ -24,7 +24,7 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-    @media screen and (max-width:768px) {
+    @media screen and (max-width:500px) {
       font-size: 11px;
     }
   }
@@ -34,8 +34,8 @@
     top: 162px;
     right: 70px;
     font-size: 170%;
-    @media screen and (max-width:768px) {
-      top: 115px;
+    @media screen and (max-width:500px) {
+      top: 125px;
       right: 20px;
     }
 

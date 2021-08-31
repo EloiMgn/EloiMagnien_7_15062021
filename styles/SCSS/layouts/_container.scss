@@ -8,7 +8,7 @@
     flex-wrap: wrap;
     justify-content: center;
     height: fit-content;
-    @media screen and (max-width:768px) {
+    @media screen and (max-width:500px) {
         flex-direction: column;
         margin-top: 40px;
     }
@@ -20,7 +20,7 @@
         height: 364px;
         margin: 30px;
         cursor: pointer;
-        @media screen and (max-width:768px) {
+        @media screen and (max-width:500px) {
             margin: 10px auto;
             max-width: 350px;
         }
@@ -118,7 +118,7 @@
         font-weight: bold;
         font-size: 18px;
         line-height: 22px;
-        @media screen and (max-width:768px) {
+        @media screen and (max-width:500px) {
             margin: auto 20px;
             text-align: center;
         }
