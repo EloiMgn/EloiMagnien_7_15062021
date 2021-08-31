@@ -21,6 +21,7 @@ input[type=search]::-webkit-search-results-decoration {
 @media screen and (max-width: 768px) {
   .second__search {
     justify-content: space-around;
+    width: 100%;
   }
 }
 
@@ -37,7 +38,8 @@ input[type=search]::-webkit-search-results-decoration {
 }
 @media screen and (max-width: 768px) {
   .Search {
-    margin: 0px;
+    margin: 0;
+    margin: 0 10px;
     width: 100%;
     align-items: initial;
   }
@@ -73,7 +75,7 @@ input[type=search]::-webkit-search-results-decoration {
 }
 @media screen and (max-width: 768px) {
   .dropbtn {
-    margin: 10px;
+    margin: 0px;
     width: 100%;
     position: initial;
     display: flex;
@@ -133,7 +135,7 @@ input[type=search]::-webkit-search-results-decoration {
 @media screen and (max-width: 768px) {
   .searchArrow {
     right: -20px;
-    bottom: 50px;
+    bottom: 25px;
   }
 }
 
@@ -142,10 +144,10 @@ input[type=search]::-webkit-search-results-decoration {
   position: relative;
   color: #ffffff;
   cursor: pointer;
-  right: 20px;
+  right: -34px;
   color: #ffffff;
   cursor: pointer;
-  bottom: 50px;
+  bottom: 60px;
 }
 
 .options {
@@ -204,6 +206,12 @@ input[type=search]::-webkit-search-results-decoration {
   line-height: 17px;
   color: #FFFFFF;
   padding: 5px;
+}
+@media screen and (max-width: 768px) {
+  .secondSearch__results__select {
+    width: 100px;
+    height: 35px;
+  }
 }
 .secondSearch__results .hidden {
   display: none;
@@ -280,6 +288,7 @@ header {
   .main__search {
     max-width: 350px;
     height: 50px;
+    margin-top: 20px;
   }
 }
 .main__search::placeholder {
@@ -322,6 +331,7 @@ header {
 @media screen and (max-width: 768px) {
   .selection {
     flex-direction: column;
+    margin-top: 40px;
   }
 }
 .selection__card {
@@ -419,13 +429,19 @@ header {
   justify-content: center;
   align-items: center;
   margin: auto;
-  align-items: center;
+  align-content: center;
   padding-top: 150px;
   font-family: Lato;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 22px;
+}
+@media screen and (max-width: 768px) {
+  .errorSection h2 {
+    margin: auto 20px;
+    text-align: center;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,6 +3,7 @@ import { firstLetterMaj, removeDuplicates, resetInputValue, sortArray } from './
 import { onClicFilterRecipes, onCloseFilterRecipes } from './filteringRecipes.js';
 import { STATE } from './state.js';
 import { closeDropdown } from './showElementsSelection.js';
+import { responsiveSelection } from './responsive.js';
 
 export const chipsList = [];
 export const selectedElements = [];
@@ -95,6 +96,7 @@ export function selectChip () {
       resetInputValue();
       onClicFilterRecipes(dropdownElement);
       closeDropdown(listId);
+      responsiveSelection();
     });
   });
 }
@@ -112,6 +114,7 @@ export function onKeyPressSelectChip (dropdownElement) {
   resetInputValue();
   onClicFilterRecipes(dropdownElement);
   closeDropdown(listId);
+  responsiveSelection();
 }
 
 export function removeChip () {
@@ -124,7 +127,8 @@ export function removeChip () {
       if (openDropdown) {
         closeDropdown(openDropdown.id.replaceAll('choice__', ''));
       }
-      cross.parentElement.classList.add('hidden'); // === suppression de la chip (passage en display:none) au clic sur la croix
+      cross.parentElement.classList.add('hidden');
+      cross.parentElement.classList.remove('selectedChip'); // === suppression de la chip (passage en display:none) au clic sur la croix
       // réapparition de l'option dans le dropdown (suppression de la class selected)
       selectedList.forEach(option => {
         if (cross.previousElementSibling.innerHTML.toLowerCase() === option.innerHTML.toLowerCase()) {
@@ -139,6 +143,7 @@ export function removeChip () {
         }
       }
       onCloseFilterRecipes();
+      responsiveSelection();
     });
   });
 }

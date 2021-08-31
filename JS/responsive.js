@@ -1,7 +1,6 @@
 export function responsiveSearch (listId) {
   if (screen.availWidth < 720) {
     responsiveIcons(listId);
-    onClicResponsive(listId);
   }
 }
 
@@ -27,18 +26,15 @@ function responsiveIcons (listId) {
   }
 }
 
-function onClicResponsive (listId) {
-  const input = document.getElementById(`choice__${listId}`);
-  input.addEventListener('focus', () => {
-    const searchBar = document.getElementById(`Search--${listId}`);
-    const searchIcon = document.getElementById(`searchIcon__${listId}`);
-    searchIcon.style.display = 'none';
-    searchBar.style.width = '220px';
-  });
-  input.addEventListener('blur', () => {
-    const searchBar = document.getElementById(`Search--${listId}`);
-    searchBar.style.width = '100%';
-    const searchIcon = document.getElementById(`searchIcon__${listId}`);
-    searchIcon.style.display = 'flex';
-  });
+export function responsiveSelection () {
+  const selection = document.querySelectorAll('.selectedChip');
+  const recipeSelection = document.querySelector('#recipes__selection');
+  if (selection.length > 3 && selection.length <= 6) {
+    recipeSelection.style.marginTop = '100px';
+  } else if (selection.length <= 3) {
+    recipeSelection.style.marginTop = '40px';
+  }
+  if (selection.length > 6) {
+    recipeSelection.style.marginTop = '160px';
+  }
 }
